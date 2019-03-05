@@ -19,13 +19,14 @@ const pgPool = new pg.Pool({
 app.use(bodyParser.json())
 app.use(session({
     store: new pgSession({
-        pool: pgPool
+        pool: pgPool,
+        pruneSessionInterval: 60 * 60 * 24
     }),
     secret: SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
     cookie: {
-        maxAge: 1212136137517365172576
+        maxAge: 30 * 24 * 60 * 60 * 1000
     }
 }))
 

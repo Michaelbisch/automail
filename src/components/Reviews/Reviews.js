@@ -6,7 +6,7 @@ class Reviews extends Component{
         return(
             <div>
                 <Link to='/'><button>Home</button></Link>
-                <Link to='/reviewmaker'><button>Make a review</button></Link>
+                <Link to='/post'><button>Make a review</button></Link>
             </div>
         )
     }
