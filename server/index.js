@@ -8,7 +8,10 @@ const pg = require('pg')
 const pgSession = require('connect-pg-simple')(session)
 
 const { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env
-const ctrl = require('./controller')
+
+const ctrlUser = require('./controllers/user_controller')
+const ctrlPosts = require('./controllers/posts_controller')
+const ctrlOrders = require('./controllers/orders_controller')
 
 const app = express();
 
@@ -36,3 +39,6 @@ massive(CONNECTION_STRING).then(db => {
 })
 
 app.listen(SERVER_PORT, () => console.log(`listening on port ${SERVER_PORT}`))
+
+app.post('/auth/register', ctrlUser.register);
+app.post('/auth/login',ctrlUser.login);
