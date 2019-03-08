@@ -50,7 +50,7 @@ class CreateUser extends Component{
 
 const mapStateToProps = (state) => {
     return {
-        id: state.id
+        id: state.user.id
     }
 }
 

@@ -17,22 +17,21 @@ module.exports = {
         let hash = bcrypt.hashSync(password ,salt);
         let user = await db.register({ email, password: hash})
         user = user[0]
-        console.log({before:session})
         session.user = user
-        console.log({after:session})
         res.status(200).send(session.user)
     },
     login: async ( req, res ) => {
         const { email, password } = req.body
         const { session } = req
         const db = req.app.get('db')
-
+        
         let user = await db.login({email})
         user = user[0]
-
+        
         if(!user) {
             res.sendStatus(404)
         }
+        
         let authenticated = bcrypt.compareSync( password, user.password )
 
         if(authenticated){
@@ -42,5 +41,18 @@ module.exports = {
         } else {
             res.sendStatus(401)
         }
+    },
+    getUser: async ( req, res ) => {
+        const { user } = req.session
+        if(user){
+            res.status(200).send('Aok')
+        } else {
+            res.sendStatus(409)
+        }
+    },
+    Logout: ( req, res ) => {
+        req.session.destroy(function() {
+            res.sendStatus(200)
+        });
     }
 }

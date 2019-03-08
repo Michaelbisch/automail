@@ -11,12 +11,20 @@ import Contact from './components/Contact/Contact';
 import Customize from './components/Customize/Customize';
 import CheckOut from './components/CheckOut/CheckOut';
 import Confirmation from './components/Confirmation/Confirmation';
-import CreateUser from './components/CreateUser/CreateUser'
+import CreateUser from './components/CreateUser/CreateUser';
+import Logout from './components/Logout/Logout'
+
 
 class App extends Component {
+  // constructor() {
+  //   super()
+    
+  // }
+  
   render() {
     return (
       <div className="App">
+      <Logout />
        <Switch>
         <Route exact path ='/' component={Dashboard}  />
         <Route path='/admin'  component={Admin} />
@@ -29,6 +37,7 @@ class App extends Component {
         <Route path='/checkout'  component={CheckOut} />
         <Route path='/confirmation'  component={Confirmation} />
         <Route path ='/createuser' component={CreateUser} />
+        <Route path='/logout' component={Logout} />
     </Switch>
         {/* <Dashboard /> */}
         {/* {routes} */}

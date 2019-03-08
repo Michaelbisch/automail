@@ -22,16 +22,16 @@ const pgPool = new pg.Pool({
 app.use(bodyParser.json())
 app.use(session({
     store: new pgSession({
-        pool: pgPool,
-        pruneSessionInterval: 60 * 60 * 24
+        pool: pgPool
     }),
     secret: SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
     cookie: {
-        maxAge: 30 * 24 * 60 * 60 * 1000
+        maxAge: 600000
     }
 }))
+
 
 massive(CONNECTION_STRING).then(db => {
     app.set('db', db)
@@ -41,4 +41,6 @@ massive(CONNECTION_STRING).then(db => {
 app.listen(SERVER_PORT, () => console.log(`listening on port ${SERVER_PORT}`))
 
 app.post('/auth/register', ctrlUser.register);
-app.post('/auth/login',ctrlUser.login);
+app.post('/auth/login', ctrlUser.login);
+app.get('/auth/checkuser', ctrlUser.getUser);
+app.post('/auth/logout', ctrlUser.Logout);
