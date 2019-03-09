@@ -6,8 +6,8 @@ import { updateUser } from "./../../ducks/reducer";
 
 
 class Auth extends Component{
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
         this.state = {
             email: '',
             password: ''

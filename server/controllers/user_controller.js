@@ -26,6 +26,7 @@ module.exports = {
         const db = req.app.get('db')
         
         let user = await db.login({email})
+
         user = user[0]
         
         if(!user) {
@@ -33,7 +34,7 @@ module.exports = {
         }
         
         let authenticated = bcrypt.compareSync( password, user.password )
-
+        console.log(user.password)
         if(authenticated){
             delete user.password
             session.user = user
@@ -45,7 +46,7 @@ module.exports = {
     getUser: async ( req, res ) => {
         const { user } = req.session
         if(user){
-            res.status(200).send('Aok')
+            res.status(200).send(user)
         } else {
             res.sendStatus(409)
         }

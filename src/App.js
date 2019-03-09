@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
 import Dashboard from './components/Dashboard/Dashboard'
 import { Switch, Route } from 'react-router-dom';
@@ -12,19 +12,13 @@ import Customize from './components/Customize/Customize';
 import CheckOut from './components/CheckOut/CheckOut';
 import Confirmation from './components/Confirmation/Confirmation';
 import CreateUser from './components/CreateUser/CreateUser';
-import Logout from './components/Logout/Logout'
 
 
-class App extends Component {
-  // constructor() {
-  //   super()
-    
-  // }
+function App(){
   
-  render() {
+  
     return (
       <div className="App">
-      <Logout />
        <Switch>
         <Route exact path ='/' component={Dashboard}  />
         <Route path='/admin'  component={Admin} />
@@ -37,13 +31,11 @@ class App extends Component {
         <Route path='/checkout'  component={CheckOut} />
         <Route path='/confirmation'  component={Confirmation} />
         <Route path ='/createuser' component={CreateUser} />
-        <Route path='/logout' component={Logout} />
-    </Switch>
-        {/* <Dashboard /> */}
-        {/* {routes} */}
+        {/* <Route path  component={Logout}  /> */}
+      </Switch>
       </div>
     );
   }
-}
+
 
 export default App;

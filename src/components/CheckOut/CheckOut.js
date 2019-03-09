@@ -1,12 +1,14 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
-import CustomPhoto from '../CustomPhoto/CustomPhoto'
+import CustomPhoto from '../CustomPhoto/CustomPhoto';
+import Logout from '../Logout/Logout'
 
 class CheckOut extends Component{
     render(){
         return(
             <div>
                 <Link to='/'><button>Home</button></Link>
+                <Logout />
                 <CustomPhoto />
                 <div>
                     <input placeholder="Address"></input>
