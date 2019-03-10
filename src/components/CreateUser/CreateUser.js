@@ -27,7 +27,7 @@ class CreateUser extends Component{
             let res = await axios.post('/auth/register', user) 
             this.props.updateUser(res.data) 
             this.props.history.push('/')
-            alert('User Created')
+            console.log('User Created')
         } catch(err){ 
             alert('email already created') 
         }

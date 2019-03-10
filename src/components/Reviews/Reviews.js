@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import Logout from '../Logout/Logout'
+import Logout from '../Logout/Logout';
+import { connect } from 'react-redux';
 
 class Reviews extends Component{
     constructor(props) {
@@ -10,7 +11,7 @@ class Reviews extends Component{
             user: ''
         }
     }
-    componentWillMount(){
+    componentDidMount(){
         this.checkUser();
     }
     
@@ -27,7 +28,8 @@ class Reviews extends Component{
         }
     }
     render(){
-        if(this.state.user !== '') {
+        console.log(this.props)
+        if(this.props.email !== '') {
             return <div>
                 <Link to='/post'><button>Make a review</button></Link>
                 <Link to='/'><button>Home</button></Link>
@@ -46,4 +48,10 @@ class Reviews extends Component{
         )
     }
 }
-export default Reviews
+const mapStateToProps = (state) => {
+    return {
+        email: state.email
+    }
+}
+
+export default connect(mapStateToProps)(Reviews)

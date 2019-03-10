@@ -4,7 +4,7 @@ import Logout from '../Logout/Logout'
 
 
 function About(props){
-    console.log(props)
+    // console.log(props)
     return(
         <div>
             <Logout />

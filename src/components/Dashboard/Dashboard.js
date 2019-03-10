@@ -6,7 +6,7 @@ import Logout from '../Logout/Logout'
 
 
 function Dashboard(props){
-    console.log(props)
+    // console.log(props)
 
     //
     return(

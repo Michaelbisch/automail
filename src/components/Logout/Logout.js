@@ -8,27 +8,28 @@ import { Link } from 'react-router-dom'
 class Logout extends Component{
     constructor(props) {
         super(props)
+        this.checkUser()
         this.state = {
             user: ''
         }
+        this.logout = this.logout.bind(this)
     }
-    componentWillMount(){
-        this.checkUser();
-    }
+    // componentDidMount(){
+    //     this.checkUser();
+    // }
     
     checkUser = async () => {
         try {
             let res = await axios.get('/auth/checkuser')
-            
-            
             this.setState({
                 user: res.data,
             })
+            
         } catch(err) {
-            console.log(err)
+           console.log(err)
         }
     }
-    logout = async () => {
+    async logout() {
         await axios.post('/auth/logout')
         this.props.clearUser()
         this.setState({
@@ -39,6 +40,7 @@ class Logout extends Component{
     
     render(){
         console.log(this.props)
+        
         if(this.state.user !== '' || this.props.email !== ''){
             return ( 
                      <div>
@@ -52,7 +54,6 @@ class Logout extends Component{
         </div>
         )
     }
-    
     }
 }
 
