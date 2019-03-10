@@ -40,7 +40,14 @@ massive(CONNECTION_STRING).then(db => {
 
 app.listen(SERVER_PORT, () => console.log(`listening on port ${SERVER_PORT}`))
 
+//User endpoints
 app.post('/auth/register', ctrlUser.register);
 app.post('/auth/login', ctrlUser.login);
 app.get('/auth/checkuser', ctrlUser.getUser);
 app.post('/auth/logout', ctrlUser.Logout);
+
+//Review endpoints
+app.get('/api/posts', ctrlPosts.getAll);
+app.post('/api/post', ctrlPosts.addPost);
+app.put('/api/post/:id', ctrlPosts.updatePost);
+app.delete('/api/post/:id', ctrlPosts.deletePost);

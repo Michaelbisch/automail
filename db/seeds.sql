@@ -4,9 +4,9 @@ CREATE TABLE users (
     password VARCHAR(255)
 );
 
-create table posts (
+CREATE TABLE posts (
 post_id serial primary key,
-title varchar(255),
+stars varchar(255),
 post varchar(255),
 user_id int references users(user_id)
 );
