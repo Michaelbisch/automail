@@ -41,7 +41,7 @@ class Logout extends Component{
     render(){
         console.log(this.props)
         
-        if(this.state.user !== '' || this.props.email !== ''){
+        if(this.props.email !== ''){
             return ( 
                      <div>
                         <button onClick={this.logout}>Logout</button>

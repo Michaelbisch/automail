@@ -49,7 +49,7 @@ class Auth extends Component{
 }
 const mapStateToProps = (State) => {
     return {
-        id: State.id //we use this for the this.checkUser
+        id: State.id 
     }
 }
 

@@ -12,6 +12,7 @@ import Customize from './components/Customize/Customize';
 import CheckOut from './components/CheckOut/CheckOut';
 import Confirmation from './components/Confirmation/Confirmation';
 import CreateUser from './components/CreateUser/CreateUser';
+import axios from 'axios';
 
 
 function App(){
