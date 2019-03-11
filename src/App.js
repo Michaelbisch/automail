@@ -12,13 +12,12 @@ import Customize from './components/Customize/Customize';
 import CheckOut from './components/CheckOut/CheckOut';
 import Confirmation from './components/Confirmation/Confirmation';
 import CreateUser from './components/CreateUser/CreateUser';
-import axios from 'axios';
+
 
 
 function App(){
-  
-  
-    return (
+
+  return (
       <div className="App">
        <Switch>
         <Route exact path ='/' component={Dashboard}  />
@@ -37,6 +36,6 @@ function App(){
       </div>
     );
   }
+  
 
-
-export default App;
+export default App

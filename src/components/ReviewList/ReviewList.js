@@ -1,21 +1,27 @@
 import React from 'react';
-import {connect} from 'react-redux';
+import StarRatingComponent from 'react-star-rating-component';
 
 function ReviewList(props){
-    console.log(props)
-    // const { }
+    console.log(666666,props.posts)
+   
     const mappedPosts = props.posts.map(post => {
-        return (
-            <div>Review</div>
+        console.log(444444, post.post)
+        return(
+            <div className='reviewbody'>
+            <div>{post.email}</div>
+            <div>
+            <StarRatingComponent 
+            name='star'
+            editing={false}
+            starCount={5}
+            value={post.stars}
+            /></div>
+            <div>{post.post}</div>
+            </div>
         )
     })
     return <div>{mappedPosts}</div>
-}
-    const mapStateToProps = (state) => {
-        return {
-            posts: state.posts
-        }
-    }    
+} 
 
 
-export default connect(mapStateToProps)(ReviewList)
+export default ReviewList

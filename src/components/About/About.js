@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import Logout from '../Logout/Logout'
 
 
-function About(props){
-    // console.log(props)
+function About(){
+    
     return(
         <div>
             <Logout />

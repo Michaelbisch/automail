@@ -5,7 +5,6 @@ import Logout from '../Logout/Logout'
 
 class Customize extends Component{
     render(){
-        // console.log(this.props)
         return(
             <div>
                 <Logout />

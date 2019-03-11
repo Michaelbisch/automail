@@ -4,20 +4,12 @@ const initialState = {
     placteColor: '',
     textColor: '',
     topInput: '',
-    bottomInput: '',
-    posts: []
+    bottomInput: ''
 }
 
 const UPDATE_USER = 'UPDATE_USER';
 const CLEAR_USER = 'CLEAR_USER';
-const UPDATE_POSTS = 'UPDATE_POSTS';
 
-export function updatePosts(posts){
-    return {
-        type: UPDATE_POSTS,
-        payload: posts
-    }
-}
 
 
 export function updateUser(user){
@@ -39,9 +31,6 @@ export default function reducer(state=initialState,action){
         case UPDATE_USER:
             const { user_id, email } = payload; 
             return { ...state, user_id, email }; 
-        case UPDATE_POSTS:
-            const { posts } = payload;
-            return { ...state, posts}
         case CLEAR_USER:
             return { ...state, id:0, email:'',placteColor: '', textColor: '', topInput: '', bottomInput: '', posts: '' }
         default:

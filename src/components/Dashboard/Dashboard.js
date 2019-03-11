@@ -5,10 +5,8 @@ import Logout from '../Logout/Logout'
 
 
 
-function Dashboard(props){
-    // console.log(props)
+function Dashboard(){
 
-    //
     return(
         <div>
         <Logout />

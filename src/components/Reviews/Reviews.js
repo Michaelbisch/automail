@@ -4,7 +4,6 @@ import axios from 'axios';
 import Logout from '../Logout/Logout';
 import { connect } from 'react-redux';
 import ReviewList from '../ReviewList/ReviewList';
-import { updatePosts } from '../../ducks/reducer'
 class Reviews extends Component{
     constructor(props) {
         super(props)
@@ -16,23 +15,21 @@ class Reviews extends Component{
         this.getPosts();
     }
     
-    getPosts = async () => {
-        try {
-            let res = await axios.get('/api/posts')
-            
-            
+    getPosts = () => {
+        axios.get('/api/posts').then(res => {
+            console.log(res.data)
             this.setState({
-                posts: res.data,
+                posts: res.data
             })
-        } catch(err) {
-            console.log(err)
-        }
+        })
+            
+            
     }
     render(){
-        // console.log(this.state.posts)
+        console.log(this.state.posts)
         if(this.props.email !== '') {
             return <div>
-                <Link to='/post'><button>Make a review</button></Link>
+                <Link to='/post'><h3>Enter Product ID to add a review</h3><button>Enter</button></Link>
                 <Link to='/'><button>Home</button></Link>
                 <Logout />
                 <ReviewList 
@@ -58,4 +55,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, {updatePosts})(Reviews)
+export default connect(mapStateToProps)(Reviews)
