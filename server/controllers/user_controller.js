@@ -24,6 +24,7 @@ module.exports = {
         const { email, password } = req.body
         const { session } = req
         const db = req.app.get('db')
+        console.log(req.session)
         
         let user = await db.login({email})
 
@@ -34,7 +35,6 @@ module.exports = {
         }
         
         let authenticated = bcrypt.compareSync( password, user.password )
-        console.log(user.password)
         if(authenticated){
             delete user.password
             session.user = user

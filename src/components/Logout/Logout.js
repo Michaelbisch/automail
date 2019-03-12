@@ -8,15 +8,14 @@ import { Link } from 'react-router-dom'
 class Logout extends Component{
     constructor(props) {
         super(props)
-        this.checkUser()
         this.state = {
             user: ''
         }
         this.logout = this.logout.bind(this)
     }
-    // componentDidMount(){
-    //     this.checkUser();
-    // }
+    componentDidMount(){
+        this.checkUser();
+    }
     
     checkUser = async () => {
         try {
@@ -39,7 +38,7 @@ class Logout extends Component{
     }
     
     render(){
-        // console.log(this.props)
+        console.log(555555, this.props)
         
         if(this.props.email !== ''){
             return ( 
@@ -59,7 +58,8 @@ class Logout extends Component{
 
 const mapStateToProps = (state) => {
     return {
-        email: state.email
+        email: state.email,
+        user_id: state.user_id
     }
 }
 

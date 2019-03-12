@@ -46,6 +46,27 @@ module.exports = {
         .catch(err => {
         res.status(500).send(err);
         });
+    },
+    idCheck: async ( req, res ) => {
+      console.log(555555, req.params)
+      console.log(222222, req.body)
+      const { order_id } = req.body;
+      const { id } = req.params;
+      const db = req.app.get('db');
+
+      let orders = await db.check_id({order_id})
+      orders = orders[0]
+      if(!id){
+        console.log('no product id')
+        return res.sendStatus(401)
+      }
+      console.log(11111111, orders.user_id)
+      if(+id !== orders.user_id){
+        console.log('id not =')
+        return res.sendStatus(401)
+      }
+      
+      res.status(200).send(orders)
     }
   };
   

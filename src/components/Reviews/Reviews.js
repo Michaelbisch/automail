@@ -3,33 +3,55 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Logout from '../Logout/Logout';
 import { connect } from 'react-redux';
+import { reviewAuth } from '../../ducks/reducer'
 import ReviewList from '../ReviewList/ReviewList';
 class Reviews extends Component{
     constructor(props) {
         super(props)
         this.state = {
-            posts: []
+            posts: [],
+            order_id: 0
         }
+        this.idCheck = this.idCheck.bind(this)
     }
     componentDidMount(){
         this.getPosts();
     }
-    
+
+    async idCheck(){
+        const id = this.props.user_id
+        const { order_id } = this.state
+        console.log(11111111, order_id)
+        try {
+            let res =  await axios.post(`/api/idcheck/${id}`, {order_id})
+            this.props.reviewAuth(res.data)
+            this.props.history.push('/post')
+        } catch(err) {
+
+            alert('problamo')
+
+        }
+    }
+
     getPosts = () => {
         axios.get('/api/posts').then(res => {
-            console.log(res.data)
             this.setState({
                 posts: res.data
             })
         })
-            
-            
+    }
+    handleChange(prop,val){
+        this.setState({
+            [prop]:val
+        })
     }
     render(){
-        console.log(this.state.posts)
+        console.log(this.props.user_id)
         if(this.props.email !== '') {
             return <div>
-                <Link to='/post'><h3>Enter Product ID to add a review</h3><button>Enter</button></Link>
+                <h5>Enter a product ID to make a review.</h5>
+                <input type='text' placeholder="Product ID" value={this.state.order_id} onChange={e=>this.handleChange('order_id',e.target.value)}></input>
+               <button onClick={this.idCheck}>Enter</button>
                 <Link to='/'><button>Home</button></Link>
                 <Logout />
                 <ReviewList 
@@ -42,6 +64,9 @@ class Reviews extends Component{
                 <Link to='/'><button>Home</button></Link>
                 <h3>Login to make a review
                 <Logout />
+                <ReviewList 
+                posts={this.state.posts}
+                /> 
                 </h3>
 
                 
@@ -51,8 +76,10 @@ class Reviews extends Component{
 }
 const mapStateToProps = (state) => {
     return {
-        email: state.email
+        email: state.email,
+        user_id: state.user_id,
+        isReviewed: state.isReviewed
     }
 }
 
-export default connect(mapStateToProps)(Reviews)
+export default connect(mapStateToProps, { reviewAuth })(Reviews)

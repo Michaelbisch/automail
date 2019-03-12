@@ -31,7 +31,6 @@ function App(){
         <Route path='/checkout'  component={CheckOut} />
         <Route path='/confirmation'  component={Confirmation} />
         <Route path ='/createuser' component={CreateUser} />
-        {/* <Route path  component={Logout}  /> */}
       </Switch>
       </div>
     );

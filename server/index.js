@@ -51,3 +51,4 @@ app.get('/api/posts', ctrlPosts.getAll);
 app.post('/api/post', ctrlPosts.addPost);
 app.put('/api/post/:id', ctrlPosts.updatePost);
 app.delete('/api/post/:id', ctrlPosts.deletePost);
+app.post('/api/idcheck/:id', ctrlPosts.idCheck);

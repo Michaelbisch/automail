@@ -9,6 +9,7 @@ class Auth extends Component{
     constructor(props){
         super(props)
         this.state = {
+            id: 0,
             email: '',
             password: ''
         }
@@ -18,6 +19,7 @@ class Auth extends Component{
 
     async login() {
         let user = {
+            id: this.state.id,
             email: this.state.email,
             password: this.state.password,
         }
@@ -49,7 +51,7 @@ class Auth extends Component{
 }
 const mapStateToProps = (State) => {
     return {
-        id: State.id 
+        id: State.id,
     }
 }
 

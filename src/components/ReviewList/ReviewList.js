@@ -2,10 +2,8 @@ import React from 'react';
 import StarRatingComponent from 'react-star-rating-component';
 
 function ReviewList(props){
-    console.log(666666,props.posts)
    
     const mappedPosts = props.posts.map(post => {
-        console.log(444444, post.post)
         return(
             <div className='reviewbody'>
             <div>{post.email}</div>
