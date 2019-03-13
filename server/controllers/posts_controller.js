@@ -11,11 +11,10 @@ module.exports = {
     },
     addPost: (req, res) => {
       const db = req.app.get('db');
-      const { user_id } = req.session.user;
-      const { stars, post } = req.body;
+      const { rating, post, user_id } = req.body;
   
-      db.create_post({stars, post, user_id})
-        .then(posts => {
+      db.create_post({rating, post, user_id}).then(posts => {
+          db.review_status({user_id})
           res.status(200).send(posts);
         })
         .catch(err => {
@@ -25,9 +24,9 @@ module.exports = {
     updatePost: (req, res) => {
         const db = req.app.get('db');
         const { id } = req.params;
-        const { stars, post } = req.body;
+        const { rating, post } = req.body;
         
-        db.update_posts({id, stars, post})
+        db.update_posts({id, rating, post})
         .then(posts => {
             res.status(200).send(posts);
         })
@@ -48,8 +47,6 @@ module.exports = {
         });
     },
     idCheck: async ( req, res ) => {
-      console.log(555555, req.params)
-      console.log(222222, req.body)
       const { order_id } = req.body;
       const { id } = req.params;
       const db = req.app.get('db');
@@ -57,15 +54,12 @@ module.exports = {
       let orders = await db.check_id({order_id})
       orders = orders[0]
       if(!id){
-        console.log('no product id')
         return res.sendStatus(401)
       }
-      console.log(11111111, orders.user_id)
       if(+id !== orders.user_id){
-        console.log('id not =')
         return res.sendStatus(401)
       }
-      
+      console.log(orders)
       res.status(200).send(orders)
     }
   };

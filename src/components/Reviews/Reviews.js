@@ -21,10 +21,15 @@ class Reviews extends Component{
     async idCheck(){
         const id = this.props.user_id
         const { order_id } = this.state
-        console.log(11111111, order_id)
+        // console.log(11111111, order_id)
         try {
             let res =  await axios.post(`/api/idcheck/${id}`, {order_id})
-            this.props.reviewAuth(res.data)
+            let review = {
+                order_id: res.data.order_id,
+                isReviewed: res.data.isreviewed
+            }
+            console.log(555555, review)
+            this.props.reviewAuth(review)
             this.props.history.push('/post')
         } catch(err) {
 
@@ -34,7 +39,7 @@ class Reviews extends Component{
     }
 
     getPosts = () => {
-        axios.get('/api/posts').then(res => {
+        axios.get('/api/reviews').then(res => {
             this.setState({
                 posts: res.data
             })
@@ -46,7 +51,7 @@ class Reviews extends Component{
         })
     }
     render(){
-        console.log(this.props.user_id)
+        // console.log(this.props)
         if(this.props.email !== '') {
             return <div>
                 <h5>Enter a product ID to make a review.</h5>

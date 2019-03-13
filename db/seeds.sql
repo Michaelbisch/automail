@@ -6,7 +6,7 @@ CREATE TABLE users (
 
 CREATE TABLE posts (
 post_id serial primary key,
-stars varchar(255),
+rating varchar(255),
 post varchar(255),
 user_id int references users(user_id)
 );

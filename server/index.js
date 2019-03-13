@@ -47,8 +47,8 @@ app.get('/auth/checkuser', ctrlUser.getUser);
 app.post('/auth/logout', ctrlUser.Logout);
 
 //Review endpoints
-app.get('/api/posts', ctrlPosts.getAll);
-app.post('/api/post', ctrlPosts.addPost);
-app.put('/api/post/:id', ctrlPosts.updatePost);
-app.delete('/api/post/:id', ctrlPosts.deletePost);
+app.get('/api/reviews', ctrlPosts.getAll);
+app.post('/api/review', ctrlPosts.addPost);
+app.put('/api/review/:id', ctrlPosts.updatePost);
+app.delete('/api/review/:id', ctrlPosts.deletePost);
 app.post('/api/idcheck/:id', ctrlPosts.idCheck);
