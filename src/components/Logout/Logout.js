@@ -38,7 +38,6 @@ class Logout extends Component{
     }
     
     render(){
-        // console.log(555555, this.props)
         
         if(this.props.email !== ''){
             return ( 

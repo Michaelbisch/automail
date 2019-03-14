@@ -8,7 +8,6 @@ import { Link } from 'react-router-dom';
 
 
 function ReviewList(props){
-    console.log(777, props)
     const auth = {
         user_id: props.user_id,
         isReviewed: true
@@ -16,7 +15,6 @@ function ReviewList(props){
     const mappedPosts = props.posts.map(post => {
         const {post_id} = post
         if(post.user_id === props.user_id){
-            console.log(post_id)
             return(
                 <div className='reviewbody' key={post.post_id}>
                     <div>{post.email}</div>
