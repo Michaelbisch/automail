@@ -6,12 +6,21 @@ const initialState = {
     topInput: '',
     bottomInput: '',
     order_id: 0,
-    isReviewed: false
+    isReviewed: false,
+    post_id: 0
 }
 
 const UPDATE_USER = 'UPDATE_USER';
 const CLEAR_USER = 'CLEAR_USER';
 const REVIEW_AUTH = 'REVIEW_AUTH';
+const EDIT_POST_ID = 'EDIT_POST_ID';
+
+export function editPostId(post_id){
+    return {
+        type: EDIT_POST_ID,
+        payload: post_id
+    }
+}
 
 export function reviewAuth(review){
     return {
@@ -42,8 +51,12 @@ export default function reducer(state=initialState,action){
         case REVIEW_AUTH:
             const {order_id, isReviewed } = payload;
             return { ...state, order_id, isReviewed}
+        case EDIT_POST_ID:
+            // const { post_id } = payload;
+            // console.log(post_id)
+            return { ...state, post_id:action.payload}
         case CLEAR_USER:
-            return { ...state, user_id: 0, email:'',placteColor: '', textColor: '', topInput: '', bottomInput: '', order_id: 0, isReviewed: false }
+            return { ...state, user_id: 0, email:'',placteColor: '', textColor: '', topInput: '', bottomInput: '', order_id: 0, isReviewed: false, post_id: 0 }
         default:
             return state;
     }

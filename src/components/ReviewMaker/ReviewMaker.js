@@ -12,9 +12,10 @@ class ReviewMaker extends Component{
         this.state = {
             isReviewed: false,
             post: '',
-            rating: 1
+            rating: 0
         }
         this.postReview = this.postReview.bind(this)
+        this.editPost = this.editPost.bind(this)
     }
     componentDidMount(){
         this.setState({
@@ -28,6 +29,22 @@ class ReviewMaker extends Component{
         this.props.history.push('/reviews')
         })
     }
+    editPost() {
+        if(this.state.post !== '' && this.state.rating !== 0){
+
+            const id = this.props.post_id
+            const post = {
+                rating: this.state.rating,
+                post: this.state.post
+            }
+            axios.put(`/api/review/${id}`, post).then(() => {
+                this.props.history.push('/reviews')
+            })
+        } else {
+            alert('Must submit both a rating and a review')
+        }
+
+    }
     onStarClick(nextValue, prevValue, name) {
         this.setState({rating: nextValue})
     }
@@ -37,7 +54,7 @@ class ReviewMaker extends Component{
         })
     }
     render(){
-        console.log(5252, this.props.isReviewed)
+        console.log(this.props.post_id)
         const { rating } = this.state;
         if(this.props.isReviewed === false ) {
             return(
@@ -61,6 +78,16 @@ class ReviewMaker extends Component{
             <div>
                  <Link to='/'><button>Home</button></Link>
                  <Logout />
+                 <div>
+                <StarRatingComponent 
+                name="rate"
+                starCount={5}
+                value={rating}
+                onStarClick={this.onStarClick.bind(this)}
+                />
+                <input type='text' placeholder="Review" value={this.state.post} onChange={e=>this.handleChange('post',e.target.value)}></input>
+                <button onClick={this.editPost}>Resubmit</button>
+                </div>
             </div>
         )
     }
@@ -70,7 +97,9 @@ const mapStateToProps = (state) => {
     return {
         email: state.email,
         user_id: state.user_id,
-        isReviewed: state.isReviewed
+        isReviewed: state.isReviewed,
+        order_id: state.order_id,
+        post_id: state.post_id
     }
 }
 

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Logout from '../Logout/Logout';
 import { connect } from 'react-redux';
-import { reviewAuth } from '../../ducks/reducer'
+import { reviewAuth } from '../../ducks/reducer';
 import ReviewList from '../ReviewList/ReviewList';
 class Reviews extends Component{
     constructor(props) {
@@ -13,11 +13,18 @@ class Reviews extends Component{
             order_id: 0
         }
         this.idCheck = this.idCheck.bind(this)
+        this.deletePost = this.deletePost.bind(this)
     }
     componentDidMount(){
         this.getPosts();
     }
-
+    getPosts = () => {
+        axios.get('/api/reviews').then(res => {
+            this.setState({
+                posts: res.data
+            })
+        })
+    }
     async idCheck(){
         const id = this.props.user_id
         const { order_id } = this.state
@@ -28,30 +35,35 @@ class Reviews extends Component{
                 order_id: res.data.order_id,
                 isReviewed: res.data.isreviewed
             }
-            console.log(555555, review)
             this.props.reviewAuth(review)
             this.props.history.push('/post')
         } catch(err) {
 
-            alert('problamo')
+            alert(err)
 
         }
     }
-
-    getPosts = () => {
-        axios.get('/api/reviews').then(res => {
+    deletePost(id) {
+        const { user_id } =  this.props
+        console.log(user_id)
+        // try { 
+            axios.delete(`/api/review/${id}`, { user_id }).then(res => {
             this.setState({
                 posts: res.data
             })
         })
+        // } catch(err) {
+        //     alert(err)
+        // }
     }
+
     handleChange(prop,val){
         this.setState({
             [prop]:val
         })
     }
     render(){
-        // console.log(this.props)
+        console.log( 666666,this.props.user_id)
         if(this.props.email !== '') {
             return <div>
                 <h5>Enter a product ID to make a review.</h5>
@@ -61,20 +73,18 @@ class Reviews extends Component{
                 <Logout />
                 <ReviewList 
                 posts={this.state.posts}
+                deletePost={this.deletePost}
                 /> 
                 </div>
         } 
         return(
             <div>
                 <Link to='/'><button>Home</button></Link>
-                <h3>Login to make a review
+                <h3>Login to make a review</h3>
                 <Logout />
                 <ReviewList 
                 posts={this.state.posts}
                 /> 
-                </h3>
-
-                
             </div>
         )
     }
@@ -83,7 +93,8 @@ const mapStateToProps = (state) => {
     return {
         email: state.email,
         user_id: state.user_id,
-        isReviewed: state.isReviewed
+        isReviewed: state.isReviewed,
+        order_id: state.order_id
     }
 }
 

@@ -14,7 +14,7 @@ module.exports = {
       const { rating, post, user_id } = req.body;
   
       db.create_post({rating, post, user_id}).then(posts => {
-          db.review_status({user_id})
+          db.review_status_true({user_id})
           res.status(200).send(posts);
         })
         .catch(err => {
@@ -37,9 +37,10 @@ module.exports = {
     deletePost: (req, res) => {
         const db = req.app.get('db');
         const { id } = req.params;
-                                      
+        const { user_id } = req.session.user
         db.delete_post({id})
         .then(posts => {
+        db.review_status_false({user_id})
         res.status(200).send(posts);
         })
         .catch(err => {
@@ -50,16 +51,20 @@ module.exports = {
       const { order_id } = req.body;
       const { id } = req.params;
       const db = req.app.get('db');
-
       let orders = await db.check_id({order_id})
       orders = orders[0]
+      if(orders == undefined){
+        return res.sendStatus(456)
+      }
       if(!id){
         return res.sendStatus(401)
       }
       if(+id !== orders.user_id){
         return res.sendStatus(401)
       }
-      console.log(orders)
+      if(orders.isreviewed === true){
+        return res.sendStatus(401)
+      }
       res.status(200).send(orders)
     }
   };
