@@ -12,6 +12,7 @@ import Customize from './components/Customize/Customize';
 import CheckOut from './components/CheckOut/CheckOut';
 import Confirmation from './components/Confirmation/Confirmation';
 import CreateUser from './components/CreateUser/CreateUser';
+import { SimpleShareButtons } from 'react-simple-share';
 
 
 
@@ -32,6 +33,11 @@ function App(){
         <Route path='/confirmation'  component={Confirmation} />
         <Route path ='/createuser' component={CreateUser} />
       </Switch>
+
+            <div className='shareicons'>
+            <SimpleShareButtons url="https://www.automailindustries.com/" color="#37474F" size="40px" />
+            </div>
+
       </div>
     );
   }
