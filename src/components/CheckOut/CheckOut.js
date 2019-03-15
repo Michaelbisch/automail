@@ -7,7 +7,11 @@ class CheckOut extends Component{
     render(){
         return(
             <div>
-                <Link to='/'><button>Home</button></Link>
+
+                        <div className='home'>
+                            <Link to='/'><button className='homebutton'>home</button></Link>
+                        </div>
+
                 <Logout />
                 <CustomPhoto />
                 <div>

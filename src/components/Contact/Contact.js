@@ -1,36 +1,63 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Logout from '../Logout/Logout'
+import Logout from '../Logout/Logout';
+import Map from 'pigeon-maps';
+import Marker from 'pigeon-marker';
+import Overlay from 'pigeon-overlay';
+import './contact.css';
 
-function Contact(){
+function mapsSelector() {
+    if((navigator.platform.indexOf("iPhone") !== -1) || (navigator.platform.indexOf("iPad") !== -1) || (navigator.platform.indexOf("iPod") !== -1)) {
+      window.open("maps://maps.google.com/maps?daddr=40.221298, -111.640918&amp;ll="); }
+  else {
+      window.open("http://maps.google.com/maps?q=946+S+State+St,+Provo,+UT+84606");
+  }
+  }
+
+function Contact(props){
+  console.log(navigator)
+  console.log(window.open)
     return(
-        <div>
+        
+        <div className='contactpage'>
             <Logout />
-            <Link to='/'><button>Home</button></Link>
-            <div>
-                <div>
+
+                        <div className='home'>
+                            <Link to='/'><button className='homebutton'>home</button></Link>
+                        </div>
+
+
+            <h1>Contact Information</h1>
+            <div className='contactinfo'>
+                <div >
                     <h2>Store Contact Information</h2>
+                    <div onClick={mapsSelector} className='contactatags'>
                     <h5>946 South State</h5>
                     <h5>PROVO, UT</h5>
                     <h5>84606</h5>
-                    <h5>automailfabrication@gmail.com</h5>
-                    <h5><a href="tel:+1-801-462-5307">+1 (801) 462-5307</a></h5>
+                    </div>
+                    <h5><a href={`mailto:wmichaelbischoff@gmail.com`} className='contactatags'>automailfabrication@gmail.com</a></h5>
+                    <h5><a href="tel:+1-801-462-5307" className='contactatags'>+1 (801) 462-5307</a></h5>
                 </div>
 
                 <div>
-                    <h2>Hours of Oporation</h2>
+                    <h2>Hours of Operation</h2>
                     <h5>Monday - Friady: 10:00 am - 6:00 pm</h5>
                     <h5>Saturday: Available upon appointment.</h5>
-                </div>
-            </div>
-            
-                    
-                    
-                    <div>
-                    <button>
-                    <a href={`mailto:wmichaelbischoff@gmail.com`}><h5>Contact</h5></a>
-                    </button>
+                    <h5>Sunday: Closed</h5>
                     </div>
+            </div>
+                        <div>
+                            <Map center={[40.221286, -111.640885]} zoom={15} width={800} height={400}>
+                            <Marker anchor={[40.221286, -111.640885]} payload={1} onClick={({ event, anchor, payload }) => {}} />
+            
+                                <Overlay anchor={[50.879, 4.6997]} offset={[120, 79]}>
+                            <img src='pigeon.jpg' width={240} height={158} alt='' />
+                                </Overlay>
+                            </Map>
+                            </div>    
+                <div>
+                </div>
         </div>
     )
 }

@@ -69,7 +69,9 @@ class Reviews extends Component{
                 <h5>Enter a product ID to make a review.</h5>
                 <input type='text' placeholder="Product ID" value={this.state.order_id} onChange={e=>this.handleChange('order_id',e.target.value)}></input>
                <button onClick={this.idCheck}>Enter</button>
-                <Link to='/'><button>Home</button></Link>
+                        <div className='home'>
+                            <Link to='/'><button className='homebutton'>home</button></Link>
+                        </div>
                 <Logout />
                 <ReviewList 
                 posts={this.state.posts}

@@ -1,0 +1,32 @@
+.contactinfo {
+    display: flex;
+    justify-content: space-around;
+    margin-left: 300px;
+    margin-right: 300px;
+}
+
+.contactatags{
+    color: black;
+    text-decoration: unset;
+    cursor: pointer;
+    display: unset;
+    margin-block-start: unset;
+    margin-block-end: unset;
+    margin-inline-start: unset;
+    margin-inline-end: unset;
+}
+
+
+.contactatags:hover {
+    color: blue;
+}
+
+  
+.contactatags:active {
+    background-color: white;
+}
+  
+.contactpage{
+    margin-top: 100px;
+    
+}

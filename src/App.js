@@ -35,6 +35,7 @@ function App(){
       </Switch>
 
             <div className='shareicons'>
+            <h2>Share us!</h2>
             <SimpleShareButtons url="https://www.automailindustries.com/" color="#37474F" size="40px" />
             </div>
 

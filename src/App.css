@@ -38,4 +38,13 @@
 	align-content: stretch;
 } */
 
+.home {
+ position: fixed;
+ top: 2em;
+ left: 3em;
+
+}
+.homebutton {
+  font-size: 13px
+}
 

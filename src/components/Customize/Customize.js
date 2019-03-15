@@ -8,7 +8,9 @@ class Customize extends Component{
         return(
             <div>
                 <Logout />
-                <Link to='/'><button>Home</button></Link>
+                        <div className='home'>
+                            <Link to='/'><button className='homebutton'>home</button></Link>
+                        </div>
                 <Link to='/checkout'><button>CheckOut</button></Link>
                 <div>
                 <CustomPhoto />

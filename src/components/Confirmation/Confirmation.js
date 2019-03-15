@@ -5,7 +5,11 @@ import Logout from '../Logout/Logout'
 function Confirmation(){
     return(
         <div>
-            <Link to='/'><button>Home</button></Link>
+
+                        <div className='home'>
+                            <Link to='/'><button className='homebutton'>home</button></Link>
+                        </div>
+
             <Logout />
             <h1>Success</h1>
         </div>

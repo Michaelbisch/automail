@@ -3,6 +3,7 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import {updateUser,clearUser} from './../../ducks/reducer';
 import { Link } from 'react-router-dom'
+import './Logout.css';
 
 
 class Logout extends Component{
@@ -41,14 +42,14 @@ class Logout extends Component{
         
         if(this.props.email !== ''){
             return ( 
-                     <div>
-                        <button onClick={this.logout}>Logout</button>
+                     <div className='auth'>
+                        <button onClick={this.logout} className='authbutton'>Logout</button>
                     </div> 
      )
     } else {
         return (
-        <div>
-        <Link to='/auth'><button>Login</button></Link>
+        <div className='auth'>
+        <Link to='/auth'><button className='authbutton'>Login</button></Link>
         </div>
         )
     }

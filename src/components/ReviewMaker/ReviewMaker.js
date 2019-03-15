@@ -59,7 +59,9 @@ class ReviewMaker extends Component{
         if(this.props.isReviewed === false ) {
             return(
                 <div>
-                <Link to='/'><button>Home</button></Link>
+                        <div className='home'>
+                            <Link to='/'><button className='homebutton'>home</button></Link>
+                        </div>
                 <Logout />
                 <div>
                 <StarRatingComponent 

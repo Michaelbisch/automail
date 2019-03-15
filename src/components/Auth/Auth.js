@@ -40,7 +40,9 @@ class Auth extends Component{
     render(){
         return(
             <div>
-                <Link to='/'><button>Home</button></Link>
+                    <div className='home'>
+                    <Link to='/'><button className='homebutton'>home</button></Link>
+                    </div>
                 <input type='text' placeholder="Email" value={this.state.email} onChange={e=>this.handleChange('email',e.target.value)}></input>
                 <input type='password' placeholder="Password" value={this.state.password} onChange={e=>this.handleChange('password',e.target.value)}></input>
                 <button onClick={this.login}>Login</button>

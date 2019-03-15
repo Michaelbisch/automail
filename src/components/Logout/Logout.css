@@ -1,0 +1,9 @@
+.auth {
+    position: fixed;
+    top: 2em;
+    right: 3em;
+}
+
+.authbutton {
+    font-size: 13px
+}
