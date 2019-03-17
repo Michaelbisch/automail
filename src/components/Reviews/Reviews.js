@@ -81,7 +81,9 @@ class Reviews extends Component{
         } 
         return(
             <div>
-                <Link to='/'><button>Home</button></Link>
+                        <div className='home'>
+                            <Link to='/'><button className='homebutton'>home</button></Link>
+                        </div>
                 <h3>Login to make a review</h3>
                 <Logout />
                 <ReviewList 

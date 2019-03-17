@@ -29,14 +29,11 @@
 
 }
 
-/* .shareicons {
-  display: flex;
-	flex-direction: column;
-	flex-wrap: nowrap;
-	justify-content: flex-end;
-	align-items: center;
-	align-content: stretch;
-} */
+.shareicons {
+  position: fixed;
+  left: calc(50% - 116px);
+  bottom: 2em;
+}
 
 .home {
  position: fixed;
@@ -46,5 +43,9 @@
 }
 .homebutton {
   font-size: 13px
+}
+
+.customizebody{
+  
 }
 

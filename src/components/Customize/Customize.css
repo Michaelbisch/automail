@@ -1,0 +1,35 @@
+.customizers{
+    display: flex;
+    justify-content: space-around;
+    margin-left: 300px;
+    margin-right: 300px;
+    margin-top: 200px;
+}
+.customcontainer{
+  width: 650;
+  height: 450;
+  position: relative;
+  text-align: center;
+  color: blue;
+}
+
+.topinput {
+  font-size: 30px;  
+  position: absolute;
+  top: 28%;
+  left: 49%;
+  transform: translate(-50%, -50%);
+  font-weight: 500;
+  font-family: "Lucida Console", Monaco, monospace;
+
+  }
+
+  .bottominput {
+    font-size: 30px;
+    position: absolute;
+    top: 71%;
+    left: 49%;
+    transform: translate(-50%, -50%);
+    font-weight: 500;
+    font-family: "Lucida Console", Monaco, monospace;
+    }

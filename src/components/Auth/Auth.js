@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import {connect} from 'react-redux';
 import { updateUser } from "./../../ducks/reducer";
+import './Auth.css'
 
 
 class Auth extends Component{
@@ -39,14 +40,14 @@ class Auth extends Component{
     }
     render(){
         return(
-            <div>
+            <div className='authbody'>
                     <div className='home'>
                     <Link to='/'><button className='homebutton'>home</button></Link>
                     </div>
                 <input type='text' placeholder="Email" value={this.state.email} onChange={e=>this.handleChange('email',e.target.value)}></input>
                 <input type='password' placeholder="Password" value={this.state.password} onChange={e=>this.handleChange('password',e.target.value)}></input>
-                <button onClick={this.login}>Login</button>
-                <Link to='/createuser'>Create an Account</Link>
+                <button className='contactatags' onClick={this.login}>Login</button>
+                <Link className='contactatags' to='/createuser'><button className='contactatags'>Create an Account</button></Link>
             </div>
         )
     }
