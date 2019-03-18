@@ -1,10 +1,19 @@
-/* body {
-  width: 1920px;
-  height: 1080px;
-} */
+body, html {
+  height: 100%;
+}
+
+body {
+  background-image: url("https://s3-us-west-2.amazonaws.com/automail-custom-covers/trianglify+(1).png");
+  height: 76%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
 
 .App {
   text-align: center;
+
 }
 
 

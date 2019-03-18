@@ -20,6 +20,8 @@ function App(){
 
   return (
       <div className="App">
+       {/* <img  src='https://s3-us-west-2.amazonaws.com/automail-custom-covers/trianglify+(1).png' alt='smile' width="100%" height="100%" /> */}
+
        <Switch>
         <Route exact path ='/' component={Dashboard}  />
         <Route path='/admin'  component={Admin} />
@@ -36,7 +38,7 @@ function App(){
 
             <div className='shareicons'>
             <h2>Share us!</h2>
-            <SimpleShareButtons url="https://www.automailindustries.com/" color="#37474F" size="40px" />
+            <SimpleShareButtons url="https://www.automailindustries.com/" size="40px" />
             </div>
             
       </div>

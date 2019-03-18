@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Logout from '../Logout/Logout';
 
 
+
 function Dashboard(){
 
     return(
@@ -12,9 +13,10 @@ function Dashboard(){
         <Link to='/contact'><button>Contact</button></Link>
         <Link to='/customize'><button>Customize</button></Link>
         <Link to='/about'><button>About</button></Link>
-                    
+          
 
         </div>
+        
     )
 }
 
