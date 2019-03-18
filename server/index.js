@@ -3,6 +3,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const massive = require('massive')
 const session = require('express-session')
+var stripe = require("stripe")("sk_test_UZsirIqmFckC4V7j1Eb9c2wE");
 
 const pg = require('pg')
 const pgSession = require('connect-pg-simple')(session)

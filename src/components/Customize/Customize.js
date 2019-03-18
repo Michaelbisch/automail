@@ -5,7 +5,8 @@ import Logout from '../Logout/Logout'
 import './Customize.css';
 import Select from 'react-select';
 import chroma from 'chroma-js';
-import {editInputs,clearInputs} from './../../ducks/reducer';
+import {connect} from 'react-redux';
+import {editInputs, clearInputs} from './../../ducks/reducer';
       
 
 
@@ -58,8 +59,8 @@ import {editInputs,clearInputs} from './../../ducks/reducer';
 
 
 class Customize extends Component{
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
         this.state = {
             topinput: '',
             bottominput: '',
@@ -67,6 +68,21 @@ class Customize extends Component{
             textcolor: {value: "black", label: "Black", color: "#000000"}
         }
         this.handleTextColor = this.handleTextColor.bind(this)
+        this.updateRedux = this.updateRedux.bind(this)
+    }
+    componentDidMount(){
+        this.props.clearInputs()
+    }
+    updateRedux(){
+        const { topinput, bottominput, platecolor, textcolor } = this.state
+        let customOptions = {
+            rtopinput: topinput,
+            rbottominput: bottominput,
+            rplatecolor: platecolor, 
+            rtextcolor: textcolor
+        }
+        this.props.editInputs(customOptions)
+
     }
     handleTextColor(textcolor){
         this.setState({
@@ -79,7 +95,7 @@ class Customize extends Component{
         })
     }
     render(){
-       
+       console.log(44444,this.props.editInputs)
     
         return(
             <div className='customizebody'>
@@ -115,7 +131,9 @@ class Customize extends Component{
                             <input type='text' placeholder="Bottom Input" value={this.state.bottominput} maxLength='10' onChange={e=>this.handleChange('bottominput',e.target.value)}></input>
                         </div>
                         <div>
-                            <Link to='/checkout'><button>CheckOut</button></Link>
+                            <Link to='/checkout'>
+                            <button onClick={this.updateRedux()}>CheckOut</button>
+                            </Link>
                         </div>
                 </div>
                 </div>
@@ -124,4 +142,4 @@ class Customize extends Component{
         )
     }
 }
-export default Customize
+export default connect(null, {editInputs, clearInputs})(Customize)
