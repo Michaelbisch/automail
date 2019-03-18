@@ -5,7 +5,7 @@ import Logout from '../Logout/Logout'
 import './Customize.css';
 import Select from 'react-select';
 import chroma from 'chroma-js';
-// import {editInputsr,clearInputs} from './../../ducks/reducer';
+import {editInputs,clearInputs} from './../../ducks/reducer';
       
 
 
@@ -14,10 +14,10 @@ import chroma from 'chroma-js';
 
 
 
-const options = [
-    { value: 'red', label: 'Red', color: '#FF5630', isFixed: true },
-    { value: 'Black', label: 'Black', color: '#000000',},
-    { value: 'blue', label: 'Blue', color: '#0052CC', disabled: true }
+  const options = [
+    { value: 'red', label: 'Red', color: '#FF5630'},
+    { value: 'black', label: 'Black', color: '#000000'},
+    { value: 'blue', label: 'Blue', color: '#0052CC' }
   ]
   const dot = (color = '#ccc') => ({
     alignItems: 'center',
@@ -64,13 +64,13 @@ class Customize extends Component{
             topinput: '',
             bottominput: '',
             platecolor: 'White',
-            textcolor: ''
+            textcolor: {value: "black", label: "Black", color: "#000000"}
         }
         this.handleTextColor = this.handleTextColor.bind(this)
     }
-    handleTextColor(newcolor){
+    handleTextColor(textcolor){
         this.setState({
-            textcolor: newcolor.value
+            textcolor
         })
     }
     handleChange(prop,val){
@@ -79,7 +79,8 @@ class Customize extends Component{
         })
     }
     render(){
-        console.log(11111,this.state.textcolor)
+       
+    
         return(
             <div className='customizebody'>
                         <Logout />
@@ -88,25 +89,25 @@ class Customize extends Component{
                         </div>
                 <div className='customizers'>
                 <div>
-                <CustomPhoto
-                topinput={this.state.topinput}
-                bottominput={this.state.bottominput}
-                />
+                    <CustomPhoto
+                    topinput={this.state.topinput}
+                    bottominput={this.state.bottominput}
+                    textcolor={this.state.textcolor.value}
+                    />
                 </div>
 
-                <div>
-                        <h3>Text Color</h3>
-                        <div>
-                        <Select 
-                        defaultValue={options[1]}
-                        label="Single select"
-                        options={options}
-                        styles={colourStyles}
-                        value={this.state.textcolor}
-                        onChange={this.handleTextColor}
-                        />
+                                <div>
+                                    <h3>Text Color</h3>
+                                    <div>
+                                    <Select
+                                    onChange={this.handleTextColor}
+                                    value={this.state.textcolor}
+                                    label="Single select"
+                                    options={options}
+                                    styles={colourStyles}
+                                    />
 
-                        </div>
+                                </div>
                         <div>
                              <input type='text' placeholder="Top Input" value={this.state.topinput} maxLength='10' onChange={e=>this.handleChange('topinput',e.target.value)}></input>
                         </div>

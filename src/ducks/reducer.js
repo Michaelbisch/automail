@@ -1,10 +1,10 @@
 const initialState = {
     user_id: 0, 
     email: '',
-    plateColor: '',
-    textColor: '',
-    topinput: '',
-    bottominput: '',
+    rplatecolor: '',
+    rtextcolor: '',
+    rtopinput: '',
+    rbottominput: '',
     order_id: 0,
     isReviewed: false,
     post_id: 0
@@ -72,14 +72,14 @@ export default function reducer(state=initialState,action){
             return { ...state, post_id:action.payload};
 
         case EDIT_INPUTS:
-            const { topinput, bottominput } = payload;
-            return {...state, topinput, bottominput};
+            const { rtopinput, rbottominput, rplatecolor, rtextcolor } = payload;
+            return {...state, rtopinput, rbottominput, rplatecolor, rtextcolor};
 
         case CLEAR_INPUTS:
-            return{ ...state, topinput: '', bottominput};
+            return{ ...state, rtopinput: '', rbottominput: '', rtextcolor: '', rplatecolor: ''};
 
         case CLEAR_USER:
-            return { ...state, user_id: 0, email:'',plateColor: '', textColor: '', topInput: '', bottomInput: '', order_id: 0, isReviewed: false, post_id: 0 };
+            return { ...state, user_id: 0, email:'', rplatecolor: '', rtextcolor: '', rtopinput: '', rbottominput: '', order_id: 0, isReviewed: false, post_id: 0 };
         default:
             return state;
     }
