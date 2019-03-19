@@ -65,7 +65,8 @@ class Reviews extends Component{
     render(){
         console.log( 666666,this.props.user_id)
         if(this.props.email !== '') {
-            return <div>
+            return( 
+            <div>
                 <h5>Enter a product ID to make a review.</h5>
                 <input type='text' placeholder="Product ID" value={this.state.order_id} onChange={e=>this.handleChange('order_id',e.target.value)}></input>
                <button onClick={this.idCheck}>Enter</button>
@@ -73,11 +74,14 @@ class Reviews extends Component{
                             <Link to='/'><button className='homebutton'>home</button></Link>
                         </div>
                 <Logout />
+                <div style={{height: '60vh', width: '55vw', overflowY: 'auto', position: 'absolute', left: '23vw', top: '20vh'}}>
                 <ReviewList 
                 posts={this.state.posts}
                 deletePost={this.deletePost}
-                /> 
-                </div>
+                />
+                </div> 
+            </div>
+            )
         } 
         return(
             <div>
@@ -86,9 +90,11 @@ class Reviews extends Component{
                         </div>
                 <h3>Login to make a review</h3>
                 <Logout />
+                <div>
                 <ReviewList 
                 posts={this.state.posts}
                 /> 
+                </div>
             </div>
         )
     }

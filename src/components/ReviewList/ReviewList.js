@@ -16,7 +16,7 @@ function ReviewList(props){
         const {post_id} = post
         if(post.user_id === props.user_id){
             return(
-                <div className='reviewbody' key={post.post_id}>
+                <div className='reviewbody'  key={post.post_id}>
                     <div>{post.email}</div>
                         <div>
                             <StarRatingComponent 
@@ -32,16 +32,19 @@ function ReviewList(props){
         )
     } else {
         return(
-            <div className='reviewbody' key={post.post_id}>
-            <div>{post.email}</div>
-            <div>
-            <StarRatingComponent 
-            name='star'
-            editing={false}
-            starCount={5}
-            value={post.rating}
-            /></div>
-            <div>{post.post}</div>
+            <div style={{display: 'flex', flexDirection: 'column', background: 'grey'}} key={post.post_id}>
+                <div className='reviewbody' style={{color: 'white'}}>
+                    <div>{post.email}</div>
+                        <div>
+                            <StarRatingComponent 
+                            name='star'
+                            editing={false}
+                            starCount={5}
+                            value={post.rating}
+                            />
+                        </div>
+                    <div>{post.post}</div>
+                </div>
             </div>
         )
     }

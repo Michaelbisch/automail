@@ -7,10 +7,6 @@ import Select from 'react-select';
 import chroma from 'chroma-js';
 import {connect} from 'react-redux';
 import {editInputs, clearInputs} from './../../ducks/reducer';
-      
-
-
-      
 
 
 

@@ -57,3 +57,4 @@ app.post('/api/idcheck/:id', ctrlPosts.idCheck);
 //Order endpoints
 app.get('/api/orders', ctrlOrders.getAllOrders)
 app.get('/api/ratings', ctrlOrders.getAllRatings)
+app.put('/api/isfulfilled/:id', ctrlOrders.updateFulfilled)

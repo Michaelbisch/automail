@@ -1,8 +1,8 @@
+
 .contactinfo {
     display: flex;
-    justify-content: space-around;
-    margin-left: 300px;
-    margin-right: 300px;
+    margin-left: 18vw;
+    margin-right: 18vw;
 }
 
 .contactatags{
@@ -27,6 +27,10 @@
 }
   
 .contactpage{
-    margin-top: 100px;
+    margin-top: 10vh;
     
+}
+.removemargin{
+    margin-top: unset;
+    margin-bottom: unset;
 }

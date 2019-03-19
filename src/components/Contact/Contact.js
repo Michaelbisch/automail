@@ -6,6 +6,7 @@ import Marker from 'pigeon-marker';
 import Overlay from 'pigeon-overlay';
 import './contact.css';
 
+
 function mapsSelector() {
     if((navigator.platform.indexOf("iPhone") !== -1) || (navigator.platform.indexOf("iPad") !== -1) || (navigator.platform.indexOf("iPod") !== -1)) {
       window.open("maps://maps.google.com/maps?daddr=40.221298, -111.640918&amp;ll="); }
@@ -29,26 +30,24 @@ function Contact(props){
 
             <h1>Contact Information</h1>
             <div className='contactinfo'>
-                <div >
-                    <h2>Store Contact Information</h2>
+                <div style={{ width: '50vw', height: '25vh', marginRight: '4vw'}}>
+                    <h2 style={{fontSize: '1.5vmax' }}>Store Contact Information</h2>
                     <div onClick={mapsSelector} className='contactatags'>
-                    <h5>946 South State</h5>
-                    <h5>PROVO, UT</h5>
-                    <h5>84606</h5>
+                    <h5 style={{fontSize: '1.1vmax'}}>946 South State PROVO, UT 84606</h5>
                     </div>
-                    <h5><a href={`mailto:wmichaelbischoff@gmail.com`} className='contactatags'>automailfabrication@gmail.com</a></h5>
-                    <h5><a href="tel:+1-801-462-5307" className='contactatags'>+1 (801) 462-5307</a></h5>
+                    <h5 style={{fontSize: '1.2vmax'}}><a href={`mailto:wmichaelbischoff@gmail.com`} className='contactatags'>automailfabrication@gmail.com</a></h5>
+                    <h5 style={{fontSize: '1.3vmax'}}><a href="tel:+1-801-462-5307" className='contactatags'>+1 (801) 462-5307</a></h5>
                 </div>
 
-                <div>
-                    <h2>Hours of Operation</h2>
-                    <h5>Monday - Friady: 10:00 am - 6:00 pm</h5>
-                    <h5>Saturday: Available upon appointment.</h5>
-                    <h5>Sunday: Closed</h5>
-                    </div>
+                <div style={{ width: '50vw', height: '25vh', marginLeft: '4vw'}}>
+                    <h2 style={{fontSize: '1.5vmax'}}>Hours of Operation</h2>
+                    <h5 style={{fontSize: '1.2vmax'}}>Monday - Friady: 10:00 am - 6:00 pm</h5>
+                    <h5 style={{fontSize: '1.2vmax'}}>Saturday: Available upon appointment.</h5>
+                    <h5 style={{fontSize: '1.4vmax'}}>Sunday: Closed</h5>
+                </div>
             </div>
-                        <div>
-                            <Map center={[40.221286, -111.640885]} zoom={15} width={800} height={400}>
+                            <div style={{height: '36vh', width: '50vw', position: 'absolute', left: '25.5vw', bottom: '18vh'}}>
+                            <Map center={[40.221286, -111.640885]} zoom={15}>
                             <Marker anchor={[40.221286, -111.640885]} payload={1} onClick={({ event, anchor, payload }) => {}} />
             
                                 <Overlay anchor={[50.879, 4.6997]} offset={[120, 79]}>

@@ -19,6 +19,18 @@ module.exports = {
         .catch(err => {
             res.status(500).send(err)
         })
+    },
+    updateFulfilled: (req, res) => {
+        const db = req.app.get('db');
+        let { id: order_id } = req.params
+        order_id = +order_id
+    
+        db.update_fullfilled({order_id: order_id}).then(list => {
+            
+            res.status(200).send(list)
+        }).catch(err => {
+            res.status(500).send(err)
+        })
     }
     //admin
     

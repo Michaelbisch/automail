@@ -16,6 +16,7 @@ class Admin extends Component{
             ratings: [],
             rateData: []
         }
+        this.fulfilled = this.fulfilled.bind(this)
     }
     componentDidMount(){
         this.fillRatings()
@@ -53,6 +54,13 @@ class Admin extends Component{
         } catch(err){
             console.log(err)
         }
+    }
+    fulfilled(id){
+        axios.put(`/api/isfulfilled/${id}`).then(res => {
+            this.setState({
+                orders: res.data
+            })
+        })
     }
     
     render(){
@@ -93,12 +101,15 @@ class Admin extends Component{
             return<div><h1>Must be logged in as an administrator to view this page</h1><Link to='/auth'><button className='authbutton'>Login</button></Link></div> 
         } else {
         return(
+        <div style={{height: '76vh', width: '100vw'}}>
+            <h1>WELCOME IDIOT</h1>
+            <div style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center'}}>
             
-            <div style={{minHeight: '100vh', minWidth: '100vw', display: 'flex', justifyContent: 'space-around', alignItems: 'center'}}>
-
+                
                     <div style={{maxHeight: '60vh', maxWidth: '48vw', overflowY: 'auto'}}>
                             <OrderList
                             orders={this.state.orders}
+                            fulfilled={this.fulfilled}
                             />
                     </div>
                     <div style={{ minWidth: '50vw', minHeight: '50vh'}}>
@@ -111,7 +122,7 @@ class Admin extends Component{
 
                 
             </div>
-           
+        </div>   
         )
     }
 }
