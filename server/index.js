@@ -53,3 +53,7 @@ app.post('/api/review', ctrlPosts.addPost);
 app.put('/api/review/:id', ctrlPosts.updatePost);
 app.delete('/api/review/:id', ctrlPosts.deletePost);
 app.post('/api/idcheck/:id', ctrlPosts.idCheck);
+
+//Order endpoints
+app.get('/api/orders', ctrlOrders.getAllOrders)
+app.get('/api/ratings', ctrlOrders.getAllRatings)
