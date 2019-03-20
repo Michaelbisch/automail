@@ -5,6 +5,8 @@ import Logout from '../Logout/Logout'
 import axios from 'axios';
 import StripeCheckout from 'react-stripe-checkout';
 
+const stripeDiv = {width: '34vw', height: '45vh', position: 'absolute', top: '26vh', right: '15vw', background: 'red'}
+
 class CheckOut extends Component{
     constructor(props) {
         super(props)
@@ -22,20 +24,14 @@ class CheckOut extends Component{
     render(){
         return(
             <div>
-                <Logout />
-                
-                <CustomPhoto />
                 <div>
-                    <input placeholder="Address"></input>
-                    <input placeholder="Appt"></input>
-                    <input placeholder="Zip"></input>
-                    <input placeholder="State"></input>
-                    <input placeholder="country"></input>
+                    <Logout />
+                        <div className='home'>
+                            <Link to='/'><button className='homebutton'>home</button></Link>
+                        </div>
                 </div>
-                <div> 
-                    <input placeholder='a'></input>
-                    <input placeholder='Phone'></input>
-                </div>
+                <CustomPhoto />
+                <div style={stripeDiv}>
                 <StripeCheckout 
                 name="Automail Industries."
                 description="Custom License Plate"
@@ -46,11 +42,9 @@ class CheckOut extends Component{
                 stripeKey={'pk_test_CmQCk8PskvWNIep7n07rRzKn'}
                 amount={this.state.amount}
                 />
-                <div>
-
                 </div>
                 
-                <Link to='/confirmation'><button>confirmation</button></Link>
+                
             </div>
         )
     }
