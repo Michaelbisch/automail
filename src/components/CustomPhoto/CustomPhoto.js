@@ -5,7 +5,7 @@ import {connect} from 'react-redux';
 const customStyle = {maxWidth: 650, position: 'absolute', top: '26vh', left: '15vw'}
 
 function CustomPhoto(props){
-    
+    console.log(props)
     if(props.rtopinput === '' && props.rbottominput === ''){
     return(
         <div className='customcontainer' style={customStyle}>

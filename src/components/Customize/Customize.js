@@ -30,7 +30,6 @@ import {editInputs, clearInputs} from './../../ducks/reducer';
       width: 10,
     },
   });
-  
   const colourStyles = {
     control: styles => ({ ...styles, backgroundColor: 'white' }),
     option: (styles, { data, isDisabled, isFocused, isSelected }) => {
@@ -70,15 +69,19 @@ class Customize extends Component{
         this.props.clearInputs()
     }
     updateRedux(){
-        const { topinput, bottominput, platecolor, textcolor } = this.state
-        let customOptions = {
-            rtopinput: topinput,
-            rbottominput: bottominput,
-            rplatecolor: platecolor, 
-            rtextcolor: textcolor
+        if(this.props.user_id === 0){
+           return  alert('must be signed in to Checkout')
+        } else {
+            const { topinput, bottominput, platecolor, textcolor } = this.state
+            let customOptions = {
+                rtopinput: topinput,
+                rbottominput: bottominput,
+                rplatecolor: platecolor, 
+                rtextcolor: textcolor.value
+            }
+            this.props.editInputs(customOptions)
+            this.props.history.push('/checkout')
         }
-        this.props.editInputs(customOptions)
-
     }
     handleTextColor(textcolor){
         this.setState({
@@ -91,7 +94,7 @@ class Customize extends Component{
         })
     }
     render(){
-       
+       console.log(9999, this.props)
     
         return(
             <div className='customizebody'>
@@ -118,6 +121,9 @@ class Customize extends Component{
                                     options={options}
                                     styles={colourStyles}
                                     />
+                                   
+
+
 
                                 </div>
                         <div>
@@ -127,9 +133,9 @@ class Customize extends Component{
                             <input type='text' placeholder="Bottom Input" value={this.state.bottominput} maxLength='10' onChange={e=>this.handleChange('bottominput',e.target.value)}></input>
                         </div>
                         <div>
-                            <Link to='/checkout'>
-                            <button onClick={this.updateRedux()}>CheckOut</button>
-                            </Link>
+                            
+                            <button onClick={this.updateRedux}>CheckOut</button>
+                           
                         </div>
                 </div>
                 </div>
@@ -138,4 +144,12 @@ class Customize extends Component{
         )
     }
 }
-export default connect(null, {editInputs, clearInputs})(Customize)
+const mapStateToProps = (state) => {
+    return {
+        email: state.email,
+        user_id: state.user_id,
+        isReviewed: state.isReviewed
+    }
+}
+
+export default connect(mapStateToProps, {editInputs, clearInputs})(Customize)

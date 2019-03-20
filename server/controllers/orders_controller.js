@@ -55,6 +55,33 @@ module.exports = {
                 }
             }
         )
+    },
+    addOrder: ( req, res ) => {
+        const db = req.app.get('db');
+        const isreviewed = false
+        const isfulfilled = false
+        const {
+            rtopinput: topinput,
+            rbottominput: bottominput,
+            rplatecolor: platecolor,
+            rtextcolor: textcolor,
+            shipping,
+            user_id
+            } = req.body
+            db.create_order({
+                topinput,
+                bottominput,
+                platecolor,
+                textcolor,
+                isreviewed,
+                shipping,
+                isfulfilled,
+                user_id
+            }).then(order => {
+                res.status(200).send(order)
+            }).catch(err => {
+                res.status(500).send(err)
+            })
     }
     
 }

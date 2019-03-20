@@ -43,8 +43,8 @@ class Dashboard extends Component{
                 color='#408C99'
                 hidden={this.state.hidden}
                 duration={1100}
-                particlesAmountCoefficient={[20]}
-                oscillationCoefficient={[80]}
+                particlesAmountCoefficient={20}
+                oscillationCoefficient={80}
                 >
                 <button
                     className="myButton"

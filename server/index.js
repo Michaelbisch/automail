@@ -60,3 +60,6 @@ app.post('/api/payment', ctrlOrders.handlePayment)
 app.get('/api/orders', ctrlOrders.getAllOrders)
 app.get('/api/ratings', ctrlOrders.getAllRatings)
 app.put('/api/isfulfilled/:id', ctrlOrders.updateFulfilled)
+
+//Place an order endpoint
+app.post('/api/placedorder', ctrlOrders.addOrder)
