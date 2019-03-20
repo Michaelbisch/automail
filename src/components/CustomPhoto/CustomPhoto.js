@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 
 
 function CustomPhoto(props){
-    console.log(222,props.rtextcolor)
+    
     if(props.rtopinput === '' && props.rbottominput === ''){
     return(
         <div className='customcontainer' >

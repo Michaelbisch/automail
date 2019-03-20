@@ -16,8 +16,6 @@ function mapsSelector() {
   }
 
 function Contact(props){
-  console.log(navigator)
-  console.log(window.open)
     return(
         
         <div className='contactpage'>

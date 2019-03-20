@@ -1,7 +1,6 @@
 import React from 'react';
 
 function OrderList(props){
-    console.log(33333,props)
     const mappedOrders = props.orders.map(order => {
     return(
         <div style={{display: 'flex', flexDirection: 'column', background: 'grey'}}key={order.order_id}>

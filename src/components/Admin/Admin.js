@@ -64,7 +64,7 @@ class Admin extends Component{
     }
     
     render(){
-        console.log(66, this.state.rateData)
+       
         const { rateData } = this.state
         const data = {
             labels: [
@@ -94,7 +94,7 @@ class Admin extends Component{
             }]
         };
         
-        console.log(11111, data.datasets)
+    
 
 
         if(this.props.email !== 'Thomas'){

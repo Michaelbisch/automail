@@ -91,7 +91,7 @@ class Customize extends Component{
         })
     }
     render(){
-       console.log(44444,this.props.editInputs)
+       
     
         return(
             <div className='customizebody'>

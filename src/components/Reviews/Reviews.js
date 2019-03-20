@@ -10,7 +10,7 @@ class Reviews extends Component{
         super(props)
         this.state = {
             posts: [],
-            order_id: 0
+            order_id: ''
         }
         this.idCheck = this.idCheck.bind(this)
         this.deletePost = this.deletePost.bind(this)
@@ -28,7 +28,7 @@ class Reviews extends Component{
     async idCheck(){
         const id = this.props.user_id
         const { order_id } = this.state
-        // console.log(11111111, order_id)
+        
         try {
             let res =  await axios.post(`/api/idcheck/${id}`, {order_id})
             let review = {
@@ -45,16 +45,12 @@ class Reviews extends Component{
     }
     deletePost(id) {
         const { user_id } =  this.props
-        console.log(user_id)
-        // try { 
             axios.delete(`/api/review/${id}`, { user_id }).then(res => {
             this.setState({
                 posts: res.data
             })
         })
-        // } catch(err) {
-        //     alert(err)
-        // }
+        
     }
 
     handleChange(prop,val){
@@ -63,13 +59,15 @@ class Reviews extends Component{
         })
     }
     render(){
-        console.log( 666666,this.props.user_id)
+        
         if(this.props.email !== '') {
             return( 
             <div>
-                <h5>Enter a product ID to make a review.</h5>
-                <input type='text' placeholder="Product ID" value={this.state.order_id} onChange={e=>this.handleChange('order_id',e.target.value)}></input>
-               <button onClick={this.idCheck}>Enter</button>
+                <div>
+                <h2>Enter a product ID to make a review.</h2>
+                <input className='idinput' type='text' placeholder="Product ID" value={this.state.order_id} onChange={e=>this.handleChange('order_id',e.target.value)}></input>
+                <button onClick={this.idCheck}>Enter</button>
+               </div>
                         <div className='home'>
                             <Link to='/'><button className='homebutton'>home</button></Link>
                         </div>
@@ -85,16 +83,21 @@ class Reviews extends Component{
         } 
         return(
             <div>
+                <div>
+                <h2>Login to make a review</h2>
+                <input className='idinput' type='text' placeholder="Product ID" value={this.state.order_id} onChange={e=>this.handleChange('order_id',e.target.value)}></input>
+                <button onClick={this.idCheck}>Enter</button>
+               </div>
                         <div className='home'>
                             <Link to='/'><button className='homebutton'>home</button></Link>
                         </div>
-                <h3>Login to make a review</h3>
                 <Logout />
-                <div>
+                <div style={{height: '60vh', width: '55vw', overflowY: 'auto', position: 'absolute', left: '23vw', top: '20vh'}}>
                 <ReviewList 
                 posts={this.state.posts}
-                /> 
-                </div>
+                deletePost={this.deletePost}
+                />
+                </div> 
             </div>
         )
     }

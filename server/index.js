@@ -3,12 +3,11 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const massive = require('massive')
 const session = require('express-session')
-var stripe = require("stripe")("sk_test_UZsirIqmFckC4V7j1Eb9c2wE");
 
 const pg = require('pg')
 const pgSession = require('connect-pg-simple')(session)
 
-const { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env
+const { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET, STRIPE_SECRET } = process.env
 
 const ctrlUser = require('./controllers/user_controller')
 const ctrlPosts = require('./controllers/posts_controller')
@@ -53,6 +52,9 @@ app.post('/api/review', ctrlPosts.addPost);
 app.put('/api/review/:id', ctrlPosts.updatePost);
 app.delete('/api/review/:id', ctrlPosts.deletePost);
 app.post('/api/idcheck/:id', ctrlPosts.idCheck);
+
+//Stripe endpoints
+app.post('/api/payment', ctrlOrders.handlePayment)
 
 //Order endpoints
 app.get('/api/orders', ctrlOrders.getAllOrders)

@@ -16,7 +16,8 @@ function ReviewList(props){
         const {post_id} = post
         if(post.user_id === props.user_id){
             return(
-                <div className='reviewbody'  key={post.post_id}>
+                <div style={{display: 'flex', flexDirection: 'column', background: 'grey'}}  key={post.post_id}>
+                <div className='reviewbody' style={{color: 'white'}}>
                     <div>{post.email}</div>
                         <div>
                             <StarRatingComponent 
@@ -26,8 +27,9 @@ function ReviewList(props){
                                 value={post.rating}/>
                         </div>
                     <div>{post.post}</div>
-                    <Link to='/post'><button onClick={() => {props.reviewAuth(auth); props.editPostId(post_id)}}>Edit</button></Link>
-                    <button onClick={() => props.deletePost(post.post_id)}>Delete</button>
+                    <Link to='/post'><button style={{backgroundColor: '#FFBA01'}} onClick={() => {props.reviewAuth(auth); props.editPostId(post_id)}}>Edit</button></Link>
+                    <button style={{backgroundColor: '#FFBA01'}} onClick={() => props.deletePost(post.post_id)}>Delete</button>
+                 </div>   
                 </div>
         )
     } else {

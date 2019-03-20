@@ -54,7 +54,7 @@ class ReviewMaker extends Component{
         })
     }
     render(){
-        console.log(this.props.post_id)
+       
         const { rating } = this.state;
         if(this.props.isReviewed === false ) {
             return(
