@@ -111,32 +111,26 @@ class Customize extends Component{
                     />
                 </div>
 
-                                <div>
-                                    <h3>Text Color</h3>
                                     <div>
-                                    <Select
-                                    onChange={this.handleTextColor}
-                                    value={this.state.textcolor}
-                                    label="Single select"
-                                    options={options}
-                                    styles={colourStyles}
-                                    />
-                                   
-
-
-
-                                </div>
-                        <div>
-                             <input type='text' placeholder="Top Input" value={this.state.topinput} maxLength='10' onChange={e=>this.handleChange('topinput',e.target.value)}></input>
-                        </div>
-                        <div>
-                            <input type='text' placeholder="Bottom Input" value={this.state.bottominput} maxLength='10' onChange={e=>this.handleChange('bottominput',e.target.value)}></input>
-                        </div>
-                        <div>
-                            
-                            <button onClick={this.updateRedux}>CheckOut</button>
-                           
-                        </div>
+                                        <h3>Text Color</h3>
+                                        <div>
+                                        <Select
+                                        onChange={this.handleTextColor}
+                                        value={this.state.textcolor}
+                                        label="Single select"
+                                        options={options}
+                                        styles={colourStyles}
+                                        />
+                                    </div>
+                                    <div>
+                                        <input type='text' placeholder="Top Input" value={this.state.topinput} maxLength='10' onChange={e=>this.handleChange('topinput',e.target.value)}></input>
+                                    </div>
+                                    <div>
+                                        <input type='text' placeholder="Bottom Input" value={this.state.bottominput} maxLength='10' onChange={e=>this.handleChange('bottominput',e.target.value)}></input>
+                                    </div>
+                                    <div>    
+                                        <button onClick={this.updateRedux}>CheckOut</button>
+                                    </div>
                 </div>
                 </div>
 

@@ -6,8 +6,8 @@ import axios from 'axios';
 import StripeCheckout from 'react-stripe-checkout';
 import {connect} from 'react-redux';
 
-const stripeDiv = {width: '34vw', height: '45vh', position: 'absolute', top: '26vh', right: '15vw', background: 'grey'}
-const stripeButton = {width: '20vw', position: 'absolute', left: '21%', bottom: '1%'}
+const stripeDiv = {width: '20vw', height: '45vh', minHeight: 450, position: 'absolute', top: '26vh', right: '15vw'}
+const stripeButton = {width: '20vw', position: 'absolute', left: '0%', bottom: '1%'}
 const mustBe = { position: 'absolute', left: '37vw', top: '45vh'}
 
 class CheckOut extends Component{

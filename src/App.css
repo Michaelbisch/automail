@@ -55,9 +55,7 @@ body {
   font-size: 28px
 }
 
-.customizebody{
-  
-}
+
 
 .myButton {
 	background-color:#599bb3;
@@ -102,19 +100,12 @@ button{
 Button:hover {
 	background-color:#408c99;
 }
-Button:active {
-	position:relative;
-	top:1px;
-}
+
 input{
-	display: inline-block;
-  -webkit-box-sizing: content-box;
-  -moz-box-sizing: content-box;
-  box-sizing: content-box;
-  padding: 15px 2px;
+  margin: 5px;
+  padding: 9px 2px;
   border: 1px solid #b7b7b7;
-  -webkit-border-radius: 12px;
-  border-radius: 3px;
+  border-radius: 6px;
   font: normal 25px/normal "Times New Roman", Times, serif;
   color: black;
   -o-text-overflow: clip;
