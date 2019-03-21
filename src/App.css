@@ -4,7 +4,7 @@ body, html {
 }
 
 body {
-  background-image: url("https://s3-us-west-2.amazonaws.com/automail-custom-covers/trianglify+(1).png");
+  background-image: url("https://s3-us-west-2.amazonaws.com/automail-custom-covers/trianglify.svg");
   height: 76vh;
   background-position: center;
   background-repeat: no-repeat;

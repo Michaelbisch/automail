@@ -17,6 +17,7 @@ class CheckOut extends Component{
             amount: 3000
         }
     }
+
     onToken = (token) => {
         token.card = void 0
         axios.post('/api/payment', {token, amount: this.state.amount}).then(res => {
