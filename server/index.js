@@ -7,6 +7,8 @@ const session = require('express-session')
 const pg = require('pg')
 const pgSession = require('connect-pg-simple')(session)
 
+const path = require('path'); 
+
 const { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET, STRIPE_SECRET } = process.env
 
 const ctrlUser = require('./controllers/user_controller')
@@ -18,6 +20,7 @@ const app = express();
 const pgPool = new pg.Pool({
     connectionString: CONNECTION_STRING
 })
+
 
 app.use(bodyParser.json())
 app.use(session({
@@ -63,3 +66,9 @@ app.put('/api/isfulfilled/:id', ctrlOrders.updateFulfilled)
 
 //Place an order endpoint
 app.post('/api/placedorder', ctrlOrders.addOrder)
+
+app.use( express.static( `${__dirname}/../build` ) );
+
+app.get('*', (req, res)=>{
+    res.sendFile(path.join(__dirname, '../build/index.html'));
+});

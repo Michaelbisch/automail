@@ -2,7 +2,7 @@ import React from 'react';
 import '../../components/Customize/Customize.css'
 import {connect} from 'react-redux';
 
-const customStyle = {maxWidth: 650, height: 450, position: 'absolute', top: '26vh', left: '15vw', backgroundColor: 'red' }
+const customStyle = {maxWidth: 650, height: 450, position: 'absolute', top: '26vh', left: '15vw' }
 
 function CustomPhoto(props){
     console.log(props)
