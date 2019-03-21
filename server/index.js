@@ -21,7 +21,6 @@ const pgPool = new pg.Pool({
     connectionString: CONNECTION_STRING
 })
 
-app.use( express.static( `${__dirname}/../build` ) );
 app.use(bodyParser.json())
 app.use(session({
     store: new pgSession({
@@ -42,6 +41,8 @@ massive(CONNECTION_STRING).then(db => {
 })
 
 app.listen(SERVER_PORT, () => console.log(`listening on port ${SERVER_PORT}`))
+
+app.use( express.static( `${__dirname}/../build` ) );
 
 //User endpoints
 app.post('/auth/register', ctrlUser.register);
@@ -66,9 +67,3 @@ app.put('/api/isfulfilled/:id', ctrlOrders.updateFulfilled)
 
 //Place an order endpoint
 app.post('/api/placedorder', ctrlOrders.addOrder)
-
-
-
-app.get('*', (req, res)=>{
-    res.sendFile(path.join(__dirname, '../build/index.html'));
-});
