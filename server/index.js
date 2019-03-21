@@ -21,7 +21,7 @@ const pgPool = new pg.Pool({
     connectionString: CONNECTION_STRING
 })
 
-
+app.use( express.static( `${__dirname}/../build` ) );
 app.use(bodyParser.json())
 app.use(session({
     store: new pgSession({
@@ -67,7 +67,7 @@ app.put('/api/isfulfilled/:id', ctrlOrders.updateFulfilled)
 //Place an order endpoint
 app.post('/api/placedorder', ctrlOrders.addOrder)
 
-app.use( express.static( `${__dirname}/../build` ) );
+
 
 app.get('*', (req, res)=>{
     res.sendFile(path.join(__dirname, '../build/index.html'));
