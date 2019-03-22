@@ -101,18 +101,18 @@ class Admin extends Component{
             return<div><h1>Must be logged in as an administrator to view this page</h1><Link to='/auth'><button className='authbutton'>Login</button></Link></div> 
         } else {
         return(
-        <div style={{height: '76vh', width: '100vw'}}>
-            <h1>WELCOME IDIOT</h1>
-            <div style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center'}}>
+        <div>
+            <h1 style={{margin: 60}}>WELCOME IDIOT</h1>
+            <div style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center', }}>
             
                 
-                    <div style={{maxHeight: '60vh', maxWidth: '48vw', overflowY: 'auto'}}>
+                    <div style={{maxHeight: '60vh', overflowY: 'auto'}}>
                             <OrderList
                             orders={this.state.orders}
                             fulfilled={this.fulfilled}
                             />
                     </div>
-                    <div style={{ minWidth: '50vw', minHeight: '50vh'}}>
+                    <div style={{ minWidth: '40vw', minHeight: '50vh'}}>
                     <h1>Ratings on your orders</h1>
                             <Pie 
                             data={data} 

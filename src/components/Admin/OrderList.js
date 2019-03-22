@@ -10,7 +10,7 @@ function OrderList(props){
                 <div style={{borderLeft: '3px solid white'}}>Text Color:  {order.textcolor}</div>
                 <div style={{borderLeft: '3px solid white'}}>Top Input:  {order.topinput}</div>
                 <div style={{borderLeft: '3px solid white'}}>Bottom Input:  {order.bottominput}</div>
-                <div style={{borderLeft: '3px solid white'}}>Shipping Information:  {order.shipping}</div>
+                <div style={{borderLeft: '3px solid white', maxWidth: '10vw'}}>Shipping Information:  {order.shipping}</div>
                 <div style={{borderLeft: '3px solid white'}}>Customer Email:  {order.email}</div>
                 <button style={{borderLeft: '3px solid white'}} onClick={() => props.fulfilled(order.order_id)}>Fullfilled</button>
             </div>
