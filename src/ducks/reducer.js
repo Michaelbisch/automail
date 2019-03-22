@@ -7,7 +7,7 @@ const initialState = {
     rbottominput: '',
     order_id: 0,
     isReviewed: false,
-    post_id: 0
+    post_id: 0,
 }
 
 const UPDATE_USER = 'UPDATE_USER';
@@ -16,6 +16,14 @@ const REVIEW_AUTH = 'REVIEW_AUTH';
 const EDIT_POST_ID = 'EDIT_POST_ID';
 const EDIT_INPUTS = 'EDIT_INPUTS';
 const CLEAR_INPUTS ='CLEAR_INPUTS';
+const UPDATE_ORDER_ID = 'UPDATE_ORDER_ID'
+
+export function updateOrderId(order_id){
+    return {
+        type: UPDATE_ORDER_ID,
+        payload: order_id
+    }
+}
 
 export function editInputs(inputs){
     return {
@@ -70,6 +78,9 @@ export default function reducer(state=initialState,action){
 
         case EDIT_POST_ID:
             return { ...state, post_id:action.payload};
+
+        case UPDATE_ORDER_ID:
+            return { ...state, order_id:action.payload};
 
         case EDIT_INPUTS:
             const { rtopinput, rbottominput, rplatecolor, rtextcolor } = payload;

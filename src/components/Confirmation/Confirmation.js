@@ -1,8 +1,31 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import Logout from '../Logout/Logout'
+import Logout from '../Logout/Logout';
+import { connect } from 'react-redux';
 
-function Confirmation(){
+const successBody = { background: 'radial-gradient(circle, rgba(230,230,230,1) 0%, rgba(255,255,255,1) 100%', width: '60vw', height: '35vh', position: 'absolute', left: '20vw', top: '30vh', color: 'black', borderRadius: '60px'}
+const successTitle = { color: '#32CD32' }
+
+class Confirmation extends Component{
+    constructor(){
+        super()
+        this.state = {
+            order_id: 0
+        }
+        this.updateState = this.updateState.bind(this)
+    }
+    componentDidMount(){
+        this.updateState()
+    }
+    updateState(){
+        this.setState({
+            order_id: this.props.order_id
+        })
+    }
+
+    render(){
+        console.log(1, this.props)
+        console.log(2, this.state)
     return(
         <div>
 
@@ -11,9 +34,23 @@ function Confirmation(){
                         </div>
 
             <Logout />
-            <h1>Success</h1>
+            <div style={successBody}>
+            <h1 style={successTitle}>Success!</h1>
+            <h2>Thank you for your purchase with Automail custom license plate covers!</h2>
+            <h2>You should expect your order in 5 buisness days.</h2>
+            <h2>Your order id is {this.state.order_id}</h2>
+            <h2>You will need this id if there is an issue with your order.</h2>
+            <h2>If you would like to leave us a review just insert this id at the top of the review page</h2>
+            </div>
         </div>
     )
+    }
 }
 
-export default Confirmation
+const mapStateToProps = (state) => {
+    return {
+       order_id: state.order_id
+    }
+}
+
+export default connect(mapStateToProps)(Confirmation)

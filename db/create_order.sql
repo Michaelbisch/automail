@@ -19,3 +19,4 @@ ${shipping},
 ${isfulfilled},
 ${user_id}
 )
+returning order_id

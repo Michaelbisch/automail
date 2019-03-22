@@ -5,6 +5,8 @@ import Logout from '../Logout/Logout'
 import axios from 'axios';
 import StripeCheckout from 'react-stripe-checkout';
 import {connect} from 'react-redux';
+import { updateOrderId } from '../../ducks/reducer';
+
 
 const stripeDiv = {width: '20vw', height: '45vh', minHeight: 450, position: 'absolute', top: '26vh', right: '15vw'}
 const stripeButton = {width: '20vw', position: 'absolute', left: '0%', bottom: '1%'}
@@ -21,8 +23,6 @@ class CheckOut extends Component{
     onToken = (token) => {
         token.card = void 0
         axios.post('/api/payment', {token, amount: this.state.amount}).then(res => {
-            console.log(12341234,res.data.billing_details.address)
-
             var {
                 rtopinput,
                 rbottominput,
@@ -34,9 +34,12 @@ class CheckOut extends Component{
             var shipping = `${line1}, ${city}, ${state}, ${postal_code}, ${country}`
             
 
-            axios.post('/api/placedorder',{rtopinput, rbottominput, platecolor, rtextcolor, shipping, user_id}).then(() => {
-                this.props.history.push('/confirmation')
+            axios.post('/api/placedorder',{rtopinput, rbottominput, platecolor, rtextcolor, shipping, user_id}).then(res => {
+                console.log(99999, res.data)
 
+                console.log(8888, res.data[0].order_id)
+                this.props.updateOrderId(res.data[0].order_id)
+                this.props.history.push('/confirmation')
             })
 
         })
@@ -92,4 +95,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(CheckOut)
+export default connect(mapStateToProps, { updateOrderId })(CheckOut)

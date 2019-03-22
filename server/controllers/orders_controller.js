@@ -50,7 +50,7 @@ module.exports = {
                     console.log(err)
                     return res.status(500).send(err)
                 } else {
-                    console.log(charge)
+                    // console.log(charge)
                     return res.status(200).send(charge)
                 }
             }
@@ -78,6 +78,7 @@ module.exports = {
                 isfulfilled,
                 user_id
             }).then(order => {
+                console.log(333333,order)
                 res.status(200).send(order)
             }).catch(err => {
                 res.status(500).send(err)

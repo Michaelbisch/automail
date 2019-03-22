@@ -5,8 +5,8 @@ module.exports = {
         const { email, password } = req.body;
         const { session } = req;
         const db = req.app.get('db');
+        let takenEmail = await db.check_email({email})
         
-        let takenEmail = db.check_email({email})
 
         takenEmail = takenEmail[0]
 
