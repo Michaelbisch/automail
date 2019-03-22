@@ -35,7 +35,7 @@ function App(){
 
             <div className='shareicons'>
             <h2 style={{fontSize: '1.6vmax' }}>Share us!</h2>
-            <SimpleShareButtons url={"https://www.automailindustries.com/"} size="40px" />
+            <SimpleShareButtons url={"automailcovers.com"} size="40px" />
             </div>
             
       </div>
