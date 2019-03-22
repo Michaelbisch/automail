@@ -50,7 +50,7 @@ module.exports = {
                     console.log(err)
                     return res.status(500).send(err)
                 } else {
-                    // console.log(charge)
+                    console.log(charge)
                     return res.status(200).send(charge)
                 }
             }
