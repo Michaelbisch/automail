@@ -5,7 +5,8 @@ import {connect} from 'react-redux';
 const customStyle = {maxWidth: 650, height: 450, position: 'absolute', top: '26vh', left: '15vw' }
 
 function CustomPhoto(props){
-    console.log(props)
+    console.log(222222, props.rtextcolor)
+    console.log(444, props.textcolor)
     if(props.rtopinput === '' && props.rbottominput === ''){
     return(
         <div className='customcontainer' style={customStyle}>
@@ -18,8 +19,8 @@ function CustomPhoto(props){
         return(
             <div className='customcontainer' style={customStyle} >
             <img  src='https://s3-us-west-2.amazonaws.com/automail-custom-covers/Whitecover.png' alt='smile' width="650" height="450" />
-            <div className="topinput" style={{color: props.rtextcolor.value}} >{props.rtopinput}</div>
-            <div className="bottominput" style={{color: props.rtextcolor.value}} >{props.rbottominput}</div>
+            <div className="topinput" style={{color: props.rtextcolor}} >{props.rtopinput}</div>
+            <div className="bottominput" style={{color: props.rtextcolor}} >{props.rbottominput}</div>
             </div>
 
         )

@@ -94,7 +94,7 @@ class Customize extends Component{
         })
     }
     render(){
-       console.log(9999, this.props)
+       console.log(11111, this.props)
     
         return(
             <div className='customizebody'>
@@ -142,7 +142,11 @@ const mapStateToProps = (state) => {
     return {
         email: state.email,
         user_id: state.user_id,
-        isReviewed: state.isReviewed
+        isReviewed: state.isReviewed,
+        rplatecolor: state.rplatecolor,
+        rtextcolor: state.rtextcolor,
+        rtopinput: state.rtopinput,
+        rbottominput: state.rbottominput
     }
 }
 

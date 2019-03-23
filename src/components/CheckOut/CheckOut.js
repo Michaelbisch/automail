@@ -45,7 +45,7 @@ class CheckOut extends Component{
         })
     }
     render(){
-        console.log(4444444,this.props)
+        console.log(33333,this.props)
         if(this.props.user_id !== 0){
         return(
             <div>
