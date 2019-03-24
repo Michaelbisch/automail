@@ -1,9 +1,9 @@
 import React, {Component} from 'react'
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 import {connect} from 'react-redux';
-import { updateUser } from "./../../ducks/reducer";
-import './Auth.css'
+import { updateUser, modalFalse, modalTwoTrue } from "./../../ducks/reducer";
+import CreateUser from '../CreateUser/CreateUser';
+import Modal from 'react-responsive-modal';
 
 
 class Auth extends Component{
@@ -27,7 +27,7 @@ class Auth extends Component{
         try {
             let res = await axios.post('/auth/login', user)
             this.props.updateUser(res.data)
-            this.props.history.push('/')
+            this.props.modalFalse()
         } catch(err) {
             console.log(err)
             alert('incorrect username or password')
@@ -38,16 +38,28 @@ class Auth extends Component{
             [prop]:val
         })
     }
+    onOpenSecondModal = () => {
+        this.props.modalTwoTrue()
+    };
+    
+    onCloseSecondModal = () => {
+        this.props.modalFalse()
+    };
     render(){
+        const { openSecondModal } = this.props;
         return(
             <div className='authbody'>
-                    <div className='home'>
-                    <Link to='/'><button className='homebutton'>home</button></Link>
-                    </div>
-                <input type='text' placeholder="Email" value={this.state.email} onChange={e=>this.handleChange('email',e.target.value)}></input>
-                <input type='password' placeholder="Password" value={this.state.password} onChange={e=>this.handleChange('password',e.target.value)}></input>
-                <button className='contactatags' onClick={this.login}>Login</button>
-                <Link className='contactatags' to='/createuser'><button className='contactatags'>Create an Account</button></Link>
+                <div>
+                        <input style={{marginTop: 'unset'}} type='text' placeholder="Email" value={this.state.email} onChange={e=>this.handleChange('email',e.target.value)}></input>
+                        <input style={{marginTop: 'unset'}} type='password' placeholder="Password" value={this.state.password} onChange={e=>this.handleChange('password',e.target.value)}></input>
+                        <button style={{marginTop: 'unset', color: 'white'}} className='contactatags' onClick={this.login}>Login</button>
+                        <button style={{marginTop: 'unset', position: 'relative', left: '10vw'}} onClick={this.onOpenSecondModal}>Create an Account</button>
+                </div>
+
+                <Modal open={openSecondModal} onClose={this.onCloseSecondModal} center>
+                    <CreateUser />
+                </Modal>
+                
             </div>
         )
     }
@@ -55,7 +67,9 @@ class Auth extends Component{
 const mapStateToProps = (State) => {
     return {
         id: State.id,
+        openFirstModal: State.openFirstModal,
+        openSecondModal: State.openSecondModal
     }
 }
 
-export default connect(mapStateToProps, {updateUser})(Auth)
+export default connect(mapStateToProps, {updateUser, modalFalse, modalTwoTrue })(Auth)
