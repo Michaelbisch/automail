@@ -46,6 +46,7 @@ class Auth extends Component{
         this.props.modalFalse()
     };
     render(){
+        //hey
         const { openSecondModal } = this.props;
         return(
             <div className='authbody'>
