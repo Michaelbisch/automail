@@ -33,7 +33,7 @@ function Contact(props){
                     <div onClick={mapsSelector} className='contactatags'>
                     <h5 className='h5' >946 South State PROVO, UT 84606</h5>
                     </div>
-                    <h6 className='h5' ><a href={`mailto:automailfabrication@gmail.com`} className='contactatags'>automailfabrication@gmail.com</a></h6>
+                    <h5 className='h5' ><a href={`mailto:automailfabrication@gmail.com`} className='contactatags'>automailfabrication@gmail.com</a></h5>
                     <h5 className='h5' ><a href="tel:+1-801-462-5307" className='contactatags'>+1 (801) 462-5307</a></h5>
                 </div>
 
