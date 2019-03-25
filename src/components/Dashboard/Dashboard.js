@@ -12,7 +12,8 @@ class Dashboard extends Component{
         this.state = {
             hidden: false,
             width: window.innerWidth,
-            amount: 0
+            amount: 0,
+            oamount: 0
         }
     }
     componentDidMount(){
@@ -21,12 +22,14 @@ class Dashboard extends Component{
     particleAmount = () => {
         if(this.state.width < 800){
             this.setState({
-                amount: 5
+                amount: 3,
+                oamount: 5
             })
         }
         else {
             this.setState({
-                amount: 20
+                amount: 20,
+                oamount: 80
             })
         }
 
@@ -42,6 +45,8 @@ class Dashboard extends Component{
     }
     
     render() {
+        console.log(this.state.amount)
+        console.log(this.state.oamount)
         return(
         <div>
         <Logout />
@@ -56,7 +61,7 @@ class Dashboard extends Component{
                 hidden={this.state.hidden}
                 duration={1100}
                 particlesAmountCoefficient={this.state.amount}
-                oscillationCoefficient={80}
+                oscillationCoefficient={this.state.oamount}
                 >
                 <button
                     className="myButton"
