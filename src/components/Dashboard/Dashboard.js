@@ -45,8 +45,6 @@ class Dashboard extends Component{
     }
     
     render() {
-        console.log(this.state.amount)
-        console.log(this.state.oamount)
         return(
         <div>
         <Logout />
