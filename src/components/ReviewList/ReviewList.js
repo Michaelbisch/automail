@@ -3,7 +3,7 @@ import StarRatingComponent from 'react-star-rating-component';
 import { editPostId, reviewAuth } from '../../ducks/reducer';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-
+import '../Reviews/Reviews.css'
 
 
 
@@ -16,7 +16,7 @@ function ReviewList(props){
         const {post_id} = post
         if(post.user_id === props.user_id){
             return(
-                <div style={{display: 'flex', flexDirection: 'column', background: 'grey', minWidth: 360}}  key={post.post_id}>
+                <div style={{display: 'flex', flexDirection: 'column', background: 'grey'}}  key={post.post_id}>
                 <div className='reviewbody' style={{color: 'white'}}>
                     <div>{post.email}</div>
                         <div>
@@ -34,7 +34,7 @@ function ReviewList(props){
         )
     } else {
         return(
-            <div style={{display: 'flex', flexDirection: 'column', background: 'grey', minWidth: 360}} key={post.post_id}>
+            <div style={{display: 'flex', flexDirection: 'column', background: 'grey'}} key={post.post_id}>
                 <div className='reviewbody' style={{color: 'white'}}>
                     <div>{post.email}</div>
                         <div>

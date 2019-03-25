@@ -3,9 +3,30 @@
     width: 55vw;
     overflow-y: auto;
     position: absolute;
-    top: 55%;
+    top: 53%;
     left: 50%;
     transform: translate(-50%, -50%);
-    min-width: 360;
+    
+
   
+}
+.revheader{
+    margin-top: 10vh;
+    min-width: 360;
+    white-Space: nowrap;
+}
+.h3id{
+  font-size: 25px;  
+}
+@media screen and (min-width: 0px) and (max-width: 720px){
+    .idinput{
+        max-width: 80px
+    }
+    .reviewlist{
+        width: 100vw;
+        position: absolute;
+        top: 65%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
 }

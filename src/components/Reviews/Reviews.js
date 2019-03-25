@@ -5,7 +5,7 @@ import Logout from '../Logout/Logout';
 import { connect } from 'react-redux';
 import { reviewAuth } from '../../ducks/reducer';
 import ReviewList from '../ReviewList/ReviewList';
-import '../Reviews/Reviews.css'
+import './Reviews.css'
 
 
 class Reviews extends Component{
@@ -66,16 +66,17 @@ class Reviews extends Component{
         if(this.props.email !== '') {
             return( 
             <div>
-                <div style={{marginTop: '10vh', minWidth: 360, whiteSpace: 'nowrap'}}>
-                <h2>Enter a product ID to make a review.</h2>
-                <input className='idinput' type='text' placeholder="Product ID" value={this.state.order_id} onChange={e=>this.handleChange('order_id',e.target.value)}></input>
+                <div className="revheader">
+                <h3 className="h3id" style={{marginBottom: 'unset'}}>Enter a product id</h3>
+                <h3 className="h3id" style={{margin: 'unset'}}>to make a review</h3>
+                <input className='idinput' type='text' placeholder="id" value={this.state.order_id} onChange={e=>this.handleChange('order_id',e.target.value)}></input>
                 <button onClick={this.idCheck}>Enter</button>
                </div>
                         <div className='home'>
                             <Link to='/'><button className='homebutton'>home</button></Link>
                         </div>
                 <Logout />
-                <div style={{height: '60vh', width: '55vw', overflowY: 'auto', position: 'absolute', top: '55%', left: '50%', transform: 'translate(-50%, -50%)', minWidth: 360}}>
+                <div className="reviewlist" >
                 <ReviewList 
                 posts={this.state.posts}
                 deletePost={this.deletePost}
