@@ -1,0 +1,19 @@
+.successBody{
+    /* width: 60%; */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: black;
+    font-size: 100%;
+}
+@media screen and (min-width: 0px) and (max-width: 720px){
+    .successBody{
+    background: radial-gradient(white,grey);
+    border-radius: 10%;
+    }
+    .conh2{
+        font-size: 15px;
+        width: 100vw;
+    }
+}
