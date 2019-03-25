@@ -28,23 +28,23 @@ function Contact(props){
 
             <h1>Contact Information</h1>
             <div className='contactinfo'>
-                <div style={{ width: '50vw', height: '25vh', marginRight: '4vw'}}>
-                    <h2 style={{fontSize: '1.5vmax' }}>Store Contact Information</h2>
+                <div className='location' style={{ width: '50%', height: '25%', marginRight: '4%', }}>
+                    <h2 className='h2' >Store Contact Information</h2>
                     <div onClick={mapsSelector} className='contactatags'>
-                    <h5 style={{fontSize: '1.1vmax'}}>946 South State PROVO, UT 84606</h5>
+                    <h5 className='h5' >946 South State PROVO, UT 84606</h5>
                     </div>
-                    <h5 style={{fontSize: '1.2vmax'}}><a href={`mailto:automailfabrication@gmail.com`} className='contactatags'>automailfabrication@gmail.com</a></h5>
-                    <h5 style={{fontSize: '1.3vmax'}}><a href="tel:+1-801-462-5307" className='contactatags'>+1 (801) 462-5307</a></h5>
+                    <h6 className='h5' ><a href={`mailto:automailfabrication@gmail.com`} className='contactatags'>automailfabrication@gmail.com</a></h6>
+                    <h5 className='h5' ><a href="tel:+1-801-462-5307" className='contactatags'>+1 (801) 462-5307</a></h5>
                 </div>
 
-                <div style={{ width: '50vw', height: '25vh', marginLeft: '4vw'}}>
-                    <h2 style={{fontSize: '1.5vmax'}}>Hours of Operation</h2>
-                    <h5 style={{fontSize: '1.2vmax'}}>Monday - Friady: 10:00 am - 6:00 pm</h5>
-                    <h5 style={{fontSize: '1.2vmax'}}>Saturday: Available upon appointment.</h5>
-                    <h5 style={{fontSize: '1.4vmax'}}>Sunday: Closed</h5>
+                <div className='location' style={{ width: '50%', height: '25%', marginLeft: '4%',}}>
+                    <h2 className='h2' >Hours of Operation</h2>
+                    <h5 className='h5' >Monday - Friady: 10:00 am - 6:00 pm</h5>
+                    <h5 className='h5' >Saturday: Available upon appointment.</h5>
+                    <h5 className='h5' >Sunday: Closed</h5>
                 </div>
             </div>
-                            <div style={{height: '36vh', width: '50vw', position: 'absolute', left: '25.5vw', bottom: '18vh'}}>
+                            <div className="mapdiv">
                             <Map center={[40.221286, -111.640885]} zoom={15}>
                             <Marker anchor={[40.221286, -111.640885]} payload={1} onClick={({ event, anchor, payload }) => {}} />
             

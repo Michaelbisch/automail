@@ -40,15 +40,20 @@ body {
 }
 
 .shareicons {
-  position: fixed;
-  left: calc(50vw - 140px);
-  bottom: 2em;
+      position: absolute;
+      bottom: -2%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+}
+@media screen and (min-width: 0px) and (max-width: 720px){
+  
+  .shareicons { display: none;}
 }
 
 .home {
  position: fixed;
- top: 2em;
- left: 3em;
+ top: 2%;
+ left: 2%;
 
 }
 .homebutton {

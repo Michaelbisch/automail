@@ -4,21 +4,33 @@ import Logout from '../Logout/Logout';
 import ParticleEffectButton from 'react-particle-effect-button';
 
 const buttonMargin = {margin: '3vw', marginBottom: '1.8vh'}
-const centerStyle ={position: 'absolute', top: '22vh', left: '33vw'}
+const centerStyle ={position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)'}
 
 class Dashboard extends Component{
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
         this.state = {
-            hidden: false
+            hidden: false,
+            width: window.innerWidth,
+            amount: 0
         }
     }
-    // animationStart(){
-    //     const { hidden } = this.state
-    //     this.setState({
-    //         hidden: !hidden
-    //     })
-    // }
+    componentDidMount(){
+        this.particleAmount()
+    }
+    particleAmount = () => {
+        if(this.state.width < 800){
+            this.setState({
+                amount: 5
+            })
+        }
+        else {
+            this.setState({
+                amount: 20
+            })
+        }
+
+    }
     animationEnd(){
         const { hidden } = this.state
         this.setState({
@@ -28,8 +40,8 @@ class Dashboard extends Component{
         this.props.history.push('/customize')
         }, 2200)
     }
+    
     render() {
-        console.log(window)
         return(
         <div>
         <Logout />
@@ -43,7 +55,7 @@ class Dashboard extends Component{
                 color='#408C99'
                 hidden={this.state.hidden}
                 duration={1100}
-                particlesAmountCoefficient={20}
+                particlesAmountCoefficient={this.state.amount}
                 oscillationCoefficient={80}
                 >
                 <button

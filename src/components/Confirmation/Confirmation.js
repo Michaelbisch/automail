@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Logout from '../Logout/Logout';
 import { connect } from 'react-redux';
 
-const successBody = { background: 'radial-gradient(circle, rgba(255,255,255,1) 40%, rgba(160,160,160,1) 100%', width: '60vw', height: '35vh', position: 'absolute', left: '20vw', top: '30vh', color: 'black', borderRadius: '60px'}
+const successBody = { background: 'radial-gradient(circle, rgba(255,255,255,1) 40%, rgba(160,160,160,1) 100%', minWidth: 360, width: '60%', minHeight: '35%', position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', color: 'black', borderRadius: '60px', fontSize: '100%'}
 const successTitle = { color: '#32CD32' }
 
 class Confirmation extends Component{
@@ -24,8 +24,7 @@ class Confirmation extends Component{
     }
 
     render(){
-        console.log(1, this.props)
-        console.log(2, this.state)
+       
     return(
         <div>
 

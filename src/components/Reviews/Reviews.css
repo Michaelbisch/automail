@@ -1,0 +1,11 @@
+.reviewlist{
+    height: 60vh;
+    width: 55vw;
+    overflow-y: auto;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 360;
+  
+}

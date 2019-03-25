@@ -49,8 +49,6 @@ class Logout extends Component{
         this.props.modalFalse()
       };
     render(){
-        console.log(111,this.props.openFirstModal)
-        console.log(2222, this.props.openSecondModal)
         if(this.props.email !== ''){
             return ( 
                      <div className='auth'>

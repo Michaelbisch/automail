@@ -78,7 +78,6 @@ module.exports = {
                 isfulfilled,
                 user_id
             }).then(order => {
-                console.log(333333,order)
                 res.status(200).send(order)
             }).catch(err => {
                 res.status(500).send(err)

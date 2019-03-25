@@ -4,7 +4,15 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 import StarRatingComponent from 'react-star-rating-component';
 import Logout from '../Logout/Logout'
-// import { reviewAuth } from '../../ducks/reducer'
+
+const centerStyle ={
+    position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)'
+};
+const margin = {
+    margin: '3%'
+};
+
+
 
 class ReviewMaker extends Component{
     constructor() {
@@ -54,8 +62,22 @@ class ReviewMaker extends Component{
         })
     }
     render(){
-       
         const { rating } = this.state;
+        if(this.props.order_id === 0){
+            return(
+                <div>
+                            <div className='home'>
+                            <Link to='/'><button className='homebutton'>home</button></Link>
+                        </div>
+                            <Logout />
+                <div style={centerStyle}>
+                <div className='home'>
+                        </div>
+                    <h1>Must insert an order id to post a review.</h1>
+                </div>
+                </div>
+            )
+        }
         if(this.props.isReviewed === false ) {
             return(
                 <div>
@@ -63,32 +85,34 @@ class ReviewMaker extends Component{
                             <Link to='/'><button className='homebutton'>home</button></Link>
                         </div>
                 <Logout />
-                <div>
+                <div style={centerStyle}>
                 <StarRatingComponent 
                 name="rate"
                 starCount={5}
                 value={rating}
                 onStarClick={this.onStarClick.bind(this)}
                 />
-                <input type='text' placeholder="Review" value={this.state.post} onChange={e=>this.handleChange('post',e.target.value)}></input>
-                <button onClick={this.postReview}>submit</button>
+                <input style={margin} type='text' placeholder="Review" value={this.state.post} onChange={e=>this.handleChange('post',e.target.value)}></input>
+                <button style={margin} onClick={this.postReview}>submit</button>
                 </div>
              </div>
         )
     } else {
         return(
             <div>
-                 <Link to='/'><button>Home</button></Link>
+                    <div className='home'>
+                            <Link to='/'><button className='homebutton'>home</button></Link>
+                    </div>
                  <Logout />
-                 <div>
+                 <div style={centerStyle}>
                 <StarRatingComponent 
                 name="rate"
                 starCount={5}
                 value={rating}
                 onStarClick={this.onStarClick.bind(this)}
                 />
-                <input type='text' placeholder="Review" value={this.state.post} onChange={e=>this.handleChange('post',e.target.value)}></input>
-                <button onClick={this.editPost}>Resubmit</button>
+                <input style={margin} type='text' placeholder="Review" value={this.state.post} onChange={e=>this.handleChange('post',e.target.value)}></input>
+                <button style={margin} onClick={this.editPost}>Resubmit</button>
                 </div>
             </div>
         )

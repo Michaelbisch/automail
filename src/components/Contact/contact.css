@@ -1,8 +1,8 @@
 
 .contactinfo {
     display: flex;
-    margin-left: 18vw;
-    margin-right: 18vw;
+    margin-left: 18%;
+    margin-right: 18%;
 }
 
 .contactatags{
@@ -33,4 +33,43 @@
 .removemargin{
     margin-top: unset;
     margin-bottom: unset;
+}
+
+.mapdiv{
+    height: 36%; 
+    width: 50%; 
+    min-width: 414px; 
+    position: absolute; 
+    top: 60%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+}
+
+@media screen and (min-width: 0px) and (max-width: 720px){
+    .mapdiv{
+        height: 36%; 
+        width: 50%; 
+        min-width: 414px; 
+        position: absolute; 
+        top: 81%; 
+        left: 50%; 
+        transform: translate(-50%, -50%);
+    }
+    .contactinfo{
+        min-height: 36vh;
+        margin-left: unset;
+        margin-right: unset;    
+    }
+    .location{
+     min-height: 38vh;
+    }
+    .contactpage{
+
+        margin-top: 15vh;
+        
+    }
+    
+}
+.h5{
+    
 }

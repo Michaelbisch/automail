@@ -93,9 +93,7 @@ class Customize extends Component{
             [prop]:val
         })
     }
-    render(){
-       console.log(11111, this.props)
-    
+    render(){    
         return(
             <div className='customizebody'>
                         <Logout />
@@ -111,7 +109,7 @@ class Customize extends Component{
                     />
                 </div>
 
-                                    <div>
+                                    <div className='cinputs'>
                                         <h3>Text Color</h3>
                                         <div>
                                         <Select

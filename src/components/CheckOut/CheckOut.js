@@ -8,8 +8,9 @@ import {connect} from 'react-redux';
 import { updateOrderId } from '../../ducks/reducer';
 
 
-const stripeDiv = {width: '20vw', height: '45vh', minHeight: 450, position: 'absolute', top: '26vh', right: '15vw'}
-const stripeButton = {width: '20vw', position: 'absolute', left: '0%', bottom: '1%'}
+const stripeDiv = {width: '20vw', height: '45vh', minHeight: 450, position: 'absolute', top: '50%', left: '70%', transform: 'translate(-50%, -50%)'}
+const stripeHeader={position: 'absolute', left: '0%', top: '20%'}
+const stripeButton = {width: '20vw', position: 'absolute', left: '0%', bottom: '40%'}
 const mustBe = { position: 'absolute', left: '37vw', top: '45vh'}
 
 class CheckOut extends Component{
@@ -35,9 +36,7 @@ class CheckOut extends Component{
             
 
             axios.post('/api/placedorder',{rtopinput, rbottominput, platecolor, rtextcolor, shipping, user_id}).then(res => {
-                console.log(99999, res.data)
 
-                console.log(8888, res.data[0].order_id)
                 this.props.updateOrderId(res.data[0].order_id)
                 this.props.history.push('/confirmation')
             })
@@ -45,7 +44,6 @@ class CheckOut extends Component{
         })
     }
     render(){
-        console.log(33333,this.props)
         if(this.props.user_id !== 0){
         return(
             <div>
@@ -57,6 +55,7 @@ class CheckOut extends Component{
                 </div>
                 <CustomPhoto />
                 <div style={stripeDiv}>
+                <h1 style={stripeHeader}>Select pay with card below to checkout</h1>
                     <StripeCheckout 
                         name="Automail Industries."
                         description="Custom License Plate"
