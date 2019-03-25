@@ -6,11 +6,12 @@ import axios from 'axios';
 import StripeCheckout from 'react-stripe-checkout';
 import {connect} from 'react-redux';
 import { updateOrderId } from '../../ducks/reducer';
+import '../Customize/Customize.css'
 
 
-const stripeDiv = {width: '20vw', height: '45vh', minHeight: 450, position: 'absolute', top: '50%', left: '70%', transform: 'translate(-50%, -50%)'}
-const stripeHeader={position: 'absolute', left: '0%', top: '20%'}
-const stripeButton = {width: '20vw', position: 'absolute', left: '0%', bottom: '40%'}
+// const stripeDiv = {width: '20vw', height: '45vh', minHeight: 450, position: 'absolute', top: '50%', left: '70%', transform: 'translate(-50%, -50%)'}
+// const stripeHeader={position: 'absolute', left: '0%', top: '20%'}
+// const stripeButton = {width: '20vw', position: 'absolute', left: '0%', bottom: '40%'}
 const mustBe = { position: 'absolute', left: '37vw', top: '45vh'}
 
 class CheckOut extends Component{
@@ -54,8 +55,8 @@ class CheckOut extends Component{
                         </div>
                 </div>
                 <CustomPhoto />
-                <div style={stripeDiv}>
-                <h1 style={stripeHeader}>Select pay with card below to checkout</h1>
+                <div className="stripeDiv">
+                <h1>Select pay with card below to checkout</h1>
                     <StripeCheckout 
                         name="Automail Industries."
                         description="Custom License Plate"
@@ -66,7 +67,7 @@ class CheckOut extends Component{
                         stripeKey={'pk_test_CmQCk8PskvWNIep7n07rRzKn'}
                         amount={this.state.amount}
                         >
-                        <button style={stripeButton}>Pay with Card</button>
+                        <button>Pay with Card</button>
                     </StripeCheckout>
                 </div>
                 

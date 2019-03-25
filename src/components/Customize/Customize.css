@@ -12,7 +12,12 @@
   text-align: center;
   color: red;
 }
-
+.stripeDiv{
+  position: absolute;
+  top: 50%;
+  left: 70%;
+  transform: translate(-50%, -50%);
+}
 .topinput {
   font-size: 30px;  
   position: absolute;
@@ -48,6 +53,21 @@
       top: 50%;
       left: 70%;
       transform: translate(-50%, -50%);
+    }
+    @media screen and (min-width: 0px) and (max-width: 1024px){
+      .customcontainer { display: none;}
+      .cinputs{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      .stripeDiv{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
     }
 
     
