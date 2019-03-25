@@ -2,9 +2,9 @@ import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 import Logout from '../Logout/Logout';
 import ParticleEffectButton from 'react-particle-effect-button';
+import '../Dashboard/Dashboard.css'
 
-const buttonMargin = {margin: '3vw', marginBottom: '1.8vh', marginLeft: 0, marginRight: 0}
-const centerStyle ={position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)'}
+const buttonMargin = {margin: '3vw'}
 
 class Dashboard extends Component{
     constructor(props){
@@ -49,7 +49,7 @@ class Dashboard extends Component{
         <div>
         <Logout />
         
-        <div style={centerStyle}>
+        <div className='centerStyle'>
         <Link to='/reviews'><button style={buttonMargin}>Reviews</button></Link>
         <Link to='/contact'><button style={buttonMargin}>Contact</button></Link>
         <h1>Automail Industries Custom License Plates</h1>

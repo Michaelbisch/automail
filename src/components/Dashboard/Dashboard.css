@@ -1,0 +1,20 @@
+.centerStyle{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+}
+.buttonMargin{
+    margin: 3vw;
+    margin-bottom: 1.8vh;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+@media screen and (min-width: 0px) and (max-width: 720px){
+    .centerStyle{
+        position: absolute;
+        top: 55%;
+        left: 50%;
+        transform: translate(-50%, -50%)
+    }
+}
