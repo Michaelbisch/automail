@@ -38,9 +38,8 @@
 .mapdiv{
     height: 36%; 
     width: 50%; 
-    min-width: 414px; 
     position: absolute; 
-    top: 60%; 
+    top: 65%; 
     left: 50%; 
     transform: translate(-50%, -50%);
 }
@@ -48,8 +47,7 @@
 @media screen and (min-width: 0px) and (max-width: 720px){
     .mapdiv{
         height: 36%; 
-        width: 50%; 
-        min-width: 414px; 
+        width: 100vw; 
         position: absolute; 
         top: 81%; 
         left: 50%; 
@@ -78,3 +76,22 @@
     font-size: 20px;
 }
 }
+@media screen and (min-width: 0px) and (max-width: 350px){
+    .contactatags{
+        color: white
+    }
+    .contactinfo{
+        background: grey;
+    }
+    .h2{
+        font-size: 15px;
+        color: white;
+      
+    }
+
+    .h5{
+        font-size: 11px;
+        color: white;
+    }
+}
+

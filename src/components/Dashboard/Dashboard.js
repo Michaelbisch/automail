@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Logout from '../Logout/Logout';
 import ParticleEffectButton from 'react-particle-effect-button';
 
-const buttonMargin = {margin: '3vw', marginBottom: '1.8vh'}
+const buttonMargin = {margin: '3vw', marginBottom: '1.8vh', marginLeft: 0, marginRight: 0}
 const centerStyle ={position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)'}
 
 class Dashboard extends Component{
@@ -28,8 +28,8 @@ class Dashboard extends Component{
         }
         else {
             this.setState({
-                amount: 20,
-                oamount: 80
+                amount: 15,
+                oamount: 65
             })
         }
 

@@ -19,6 +19,9 @@
   font-size: 25px;  
 }
 @media screen and (min-width: 0px) and (max-width: 720px){
+    .revheader{
+        margin-top: 14vh;
+    }
     .idinput{
         max-width: 80px
     }

@@ -87,14 +87,14 @@ class Reviews extends Component{
         } 
         return(
             <div>
-                <div style={{marginTop: '12vh', minWidth: 360, whiteSpace: 'nowrap'}}>
-                <h2>Login to make a review</h2>
+                <div className="revheader">
+                <h3 className="h3id">Login to make a review</h3>
                </div>
                         <div className='home'>
                             <Link to='/'><button className='homebutton'>home</button></Link>
                         </div>
                 <Logout />
-                <div className='reviewlist' style={{height: '60vh', width: '55vw', overflowY: 'auto', position: 'absolute', top: '55%', left: '50%', transform: 'translate(-50%, -50%)', minWidth: 360}}>
+                <div className='reviewlist'>
                 <ReviewList 
                 posts={this.state.posts}
                 deletePost={this.deletePost}
